@@ -1,33 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
 @tailwind base;
 @tailwind components;
+
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Karla", sans-serif;
 }
 
+.flex-center {
+  @apply flex justify-center items-center gap-4;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply font-[700];
+}
+
+p {
+  @apply text-white text-[22px];
+}
+
+h2 {
+  @apply xl:text-[40px] text-[32px] text-primary inline-block leading-[1.1];
+}
+
+label {
+  @apply text-[24px] pb-2 block;
+}
+
+input,
+textarea {
+  @apply w-full py-2 px-4 border-[1px] border-primary text-[22px] rounded-lg;
+}
+input {
+  @apply mb-4;
+}
+svg {
+  width: 48px;
+  height: 48px;
+  @apply text-white;
+  fill: #fff;
+}
+a {
+  transition: all 0.3s ease-in-out;
+}
+
+.tooltip {
+  @apply relative text-center;
+}
+
+.tooltip__msg {
+  @apply absolute top-[-30px] right-0 opacity-0 invisible;
+  transition: all 0.3s ease-in-out;
+}
+
+.tooltip:hover .tooltip__msg {
+  @apply opacity-100 visible bg-primary  px-1 py-1 rounded-sm;
+}
+
+.featured__project > div {
+  @apply col-span-3 md:col-span-2 cursor-pointer;
+}
+.btn {
+  @apply text-[16px] px-8 py-2;
+}
+
+.btn__outline {
+  @apply border-[1px] border-solid border-primary text-white hover:bg-primary transition-all duration-300 ease-in-out;
+}
+.btn__filled {
+  @apply bg-primary text-white hover:bg-blue;
+}
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .section__gap {
+    @apply lg:pb-[130px] pb-[80px];
+  }
+  .section__title {
+    @apply text-center lg:text-start mb-8;
   }
 }
