@@ -1,0 +1,37 @@
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+export default function About() {
+  return (
+    <section className="about section__gap">
+      <div className="container">
+        <div className="lg:grid lg:grid-cols-8 lg:gap-12">
+          <div className="col-span-4 text-center lg:order-1 mb-8 mb-lg-0">
+            <Image src="/banner.png" alt="" className="max-w-full h-auto rounded-lg " width={828} height={552} />
+          </div>
+          <div className="col-span-4 mb-8 lg:order-2 ">
+            <div className="section__title">
+              <h2>About My Journey</h2>
+            </div>
+            <div className="about__brief">
+              <p className="mb-4">Hello again! Thanks for scrolling this far!!.</p>
+              <p className="mb-4">Hope you have through some of my project</p>
+              <p className="mb-4">
+                I am graduated from <span className="text-primary">Tribhuwan University</span> and from Kathmandu Nepal with a bachelor degree of
+                Computer Science and Information Technology
+              </p>
+              <Link
+                href={"#"}
+                download={true}
+                className="block text-center lg:inline-block border-[1px] border-solid border-primary text-white py-4 lg:px-12 text-[22px] capitalize hover:bg-primary rounded-[4px]"
+              >
+                Download CV
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

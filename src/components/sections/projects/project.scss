@@ -1,0 +1,37 @@
+.projects {
+  ul {
+    li {
+      button {
+        @apply bg-white-100 px-3 py-1 rounded-[20px] transition-all duration-300 ease-in-out hover:bg-primary hover:text-white lg:text-[22px];
+
+        &.active {
+          @apply bg-primary text-white;
+        }
+      }
+    }
+  }
+
+  .slick-slide {
+    @apply px-3 lg:px-4;
+  }
+  .project__tab__item {
+    @apply relative;
+
+    &-image {
+      @apply mb-6;
+    }
+    &-text {
+      @apply left-[12px] right-[12px] bottom-[12px] bg-primary-100 rounded-[12px] lg:p-4;
+
+      span {
+        @apply inline-block text-[12px] bg-white-100 px-2 rounded-[12px] mb-2;
+      }
+      h3 {
+        @apply text-[24px] text-white mb-2;
+      }
+      p {
+        @apply text-[16px] mb-4;
+      }
+    }
+  }
+}
