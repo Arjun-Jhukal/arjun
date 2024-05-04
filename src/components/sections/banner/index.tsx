@@ -20,7 +20,7 @@ export default function PageBanner() {
           </div>
           <div className="lg:col-span-3 lg:order-1">
             <h1 className="text-primary text-[40px] font-[800] relative inline-block mb-8 ">
-              Hello! <br /> <span className=" leading-[1.2]">I'm Arjun Jhukal.</span>
+              Hello! <br /> <span className=" leading-[1.2]">I&rsquo;m Arjun Jhukal.</span>
             </h1>
             <p className="text-[24px] text-white lg:max-w-[80%] mb-8">
               A multidisciplinary <span className="text-primary">software developer</span> with a passion for developing something new something
