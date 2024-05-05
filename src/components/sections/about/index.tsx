@@ -18,8 +18,8 @@ export default function About() {
               <p className="mb-4">Hello again! Thanks for scrolling this far!!.</p>
               <p className="mb-4">Hope you have through some of my project</p>
               <p className="mb-8">
-                I'm a Computer Science and Information Technology graduate from Tribhuwan University, Kathmandu, Nepal. With over 2 years of industry
-                experience, I'm driven to innovate and deliver exceptional solutions. Feel free to view{" "}
+                I&apos;m a Computer Science and Information Technology graduate from Tribhuwan University, Kathmandu, Nepal. With over 2 years of
+                industry experience, I&apos;m driven to innovate and deliver exceptional solutions. Feel free to view
                 <Link href={"#"} className="text-primary">
                   my projects
                 </Link>{" "}
