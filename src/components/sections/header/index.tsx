@@ -34,7 +34,7 @@ export default function Header() {
           </Link>
           <nav className={`fixed top-0 left-0 bottom-0 right-0 md:relative z-10 ${showMobileMenu ? "active" : ""}`}>
             <ul
-              className="flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center gap-4 bg-primary-100 min-h-screen max-w-[320px] p-4 md:p-0 md:min-h-[auto]"
+              className="flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center gap-4 lg:gap-8 bg-primary-100 min-h-screen max-w-[320px] p-4 md:p-0 md:min-h-[auto]"
               ref={mobileMenuRef}
             >
               <li className="flex justify-between items-center mb-8 md:hidden">
@@ -44,27 +44,27 @@ export default function Header() {
                 <button className="close__icon" onClick={handleMobileMenuChange}></button>
               </li>
               <li>
-                <Link href={"/"} className="text-white  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white text-[22px]  inline-block hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-white  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white text-[22px]  inline-block hover:text-primary">
                   About
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-white  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white text-[22px]  inline-block hover:text-primary">
                   Project
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-white  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white text-[22px]  inline-block hover:text-primary">
                   Skills
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-white  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white text-[22px]  inline-block hover:text-primary">
                   Reviews
                 </Link>
               </li>

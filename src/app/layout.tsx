@@ -1,9 +1,7 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
+import React from "react";
+
 import "./globals.css";
-import Header from "@/components/sections/header";
-import Footer from "@/components/sections/footer";
-import DownloadCv from "@/components/molecules/download-button";
-import { title } from "process";
 
 export const metadata: Metadata = {
   title: "Arjun Jhukal | Frontend Developer",
@@ -23,19 +21,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactElement }) {
   return (
     <html lang="en">
-      <body className="bg-primary-100">
-        <Header />
-        {children}
-        <Footer />
-        <DownloadCv />
-      </body>
+      <body className="bg-primary-100">{children} </body>
     </html>
   );
 }
