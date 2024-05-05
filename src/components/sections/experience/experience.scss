@@ -1,0 +1,32 @@
+.experience {
+  h3 {
+    @apply text-[32px] text-white mb-2;
+  }
+  span {
+    @apply text-white lg:text-primary text-[22px];
+  }
+  p {
+    @apply text-[16px];
+  }
+
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      @apply mb-8 border-b-[1px] border-solid border-primary-200 pb-8;
+
+      &::before {
+        content: "";
+        @apply absolute bottom-0 left-0 h-[1px] bg-primary;
+        height: 1px;
+        width: 0;
+        transform-origin: bottom right;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+        transform-origin: bottom left;
+      }
+    }
+  }
+}

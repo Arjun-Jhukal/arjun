@@ -21,7 +21,7 @@
       @apply mb-6;
     }
     &-text {
-      @apply left-[12px] right-[12px] bottom-[12px] bg-primary-100 rounded-[12px] lg:p-4;
+      @apply left-[12px] right-[12px] bottom-[12px] bg-primary-100 rounded-[12px];
 
       span {
         @apply inline-block text-[12px] bg-white-100 px-2 rounded-[12px] mb-2;
@@ -33,5 +33,22 @@
         @apply text-[16px] mb-4;
       }
     }
+  }
+
+  .prev-btn,
+  .next-btn {
+    @apply w-[48px] h-[48px] rounded-[50%] bg-primary-200 grid place-items-center opacity-60 absolute top-[13%] md:top-[25%]  z-10 transition-all duration-300 ease-in-out hover:opacity-100;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .next-btn {
+    @apply right-0;
+  }
+  .prev-btn {
+    @apply left-0;
   }
 }

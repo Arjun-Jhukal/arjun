@@ -3,45 +3,47 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import "./project.scss";
+import AngleLeftIcon from "@/Icons/AngleLeft";
+import AngleRightIcon from "@/Icons/AngleRight";
+
+const PrevArrow = (props: any) => {
+  const { onClick } = props;
+  return (
+    <button className="prev-btn" onClick={onClick}>
+      <AngleLeftIcon />
+    </button>
+  );
+};
+
+const NextArrow = (props: any) => {
+  const { onClick } = props;
+  return (
+    <button className="next-btn" onClick={onClick}>
+      <AngleRightIcon />
+    </button>
+  );
+};
 
 export default function ProjectList() {
   const [activeTab, setActiveTab] = React.useState("react");
-
   const tabList = [
-    {
-      key: "html",
-      label: "HTML",
-    },
-    {
-      key: "react",
-      label: "React Js",
-    },
-    {
-      key: "next",
-      label: "Next Js",
-    },
-    {
-      key: "full-stack",
-      label: "Full Stack",
-    },
-    {
-      key: "mobile-app",
-      label: "Mobile App",
-    },
+    { key: "html", label: "HTML" },
+    { key: "react", label: "React Js" },
+    { key: "next", label: "Next Js" },
+    { key: "full-stack", label: "Full Stack" },
+    { key: "mobile-app", label: "Mobile App" },
   ];
 
   const settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 768,
@@ -50,14 +52,8 @@ export default function ProjectList() {
           infinite: false,
         },
       },
-      //   {
-      //     breakpoint: 992,
-      //     settings: {
-      //       slidesToShow: 2,
-      //     },
-      //   },
       {
-        breakpoint: 1200,
+        breakpoint: 1400,
         settings: {
           slidesToShow: 2,
         },
@@ -72,7 +68,7 @@ export default function ProjectList() {
           <h2>Projects</h2>
         </div>
         <div className="project__wrapper">
-          <ul className="flex justify-center align-center flex-wrap gap-4  mb-8">
+          <ul className="flex justify-center items-center flex-wrap gap-4 mb-8">
             {tabList?.map((tab) => (
               <li key={tab.key}>
                 <button
@@ -90,13 +86,13 @@ export default function ProjectList() {
             <Slider {...settings}>
               <div className="project__tab__item">
                 <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={480} height={300} className="max-w-full h-auto" />
+                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
                 </div>
                 <div className="project__tab__item-text">
                   <span>HTML</span>
                   <h3>Cleaning Firm</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex justify-start align-center gap-12">
+                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
                     <Link href={"#"} className="btn btn__filled">
                       Source Code
                     </Link>
@@ -108,13 +104,13 @@ export default function ProjectList() {
               </div>
               <div className="project__tab__item">
                 <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={480} height={300} className="max-w-full h-auto" />
+                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
                 </div>
                 <div className="project__tab__item-text">
                   <span>HTML</span>
                   <h3>Cleaning Firm</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex justify-start align-center gap-12">
+                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
                     <Link href={"#"} className="btn btn__filled">
                       Source Code
                     </Link>
@@ -126,13 +122,13 @@ export default function ProjectList() {
               </div>
               <div className="project__tab__item">
                 <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={480} height={300} className="max-w-full h-auto" />
+                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
                 </div>
                 <div className="project__tab__item-text">
                   <span>HTML</span>
                   <h3>Cleaning Firm</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex justify-start align-center gap-12">
+                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
                     <Link href={"#"} className="btn btn__filled">
                       Source Code
                     </Link>
@@ -144,13 +140,13 @@ export default function ProjectList() {
               </div>
               <div className="project__tab__item">
                 <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={480} height={300} className="max-w-full h-auto" />
+                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
                 </div>
                 <div className="project__tab__item-text">
                   <span>HTML</span>
                   <h3>Cleaning Firm</h3>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex justify-start align-center gap-12">
+                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
                     <Link href={"#"} className="btn btn__filled">
                       Source Code
                     </Link>

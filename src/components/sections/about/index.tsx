@@ -17,14 +17,14 @@ export default function About() {
             <div className="about__brief">
               <p className="mb-4">Hello again! Thanks for scrolling this far!!.</p>
               <p className="mb-4">Hope you have through some of my project</p>
-              <p className="mb-4">
+              <p className="mb-8">
                 I am graduated from <span className="text-primary">Tribhuwan University</span> and from Kathmandu Nepal with a bachelor degree of
                 Computer Science and Information Technology
               </p>
               <Link
-                href={"#"}
-                download={true}
-                className="block text-center lg:inline-block border-[1px] border-solid border-primary text-white py-4 lg:px-12 text-[22px] capitalize hover:bg-primary rounded-[4px]"
+                href={"https://drive.google.com/file/d/1Vrw4jljK1t_pkAXytdsbYiF9eqORMc-W/view?usp=sharing"}
+                target="_blank"
+                className="block text-center lg:inline-block border-[1px] border-solid border-primary text-white py-2 lg:px-12 text-[22px] capitalize hover:bg-primary rounded-[4px]"
               >
                 Download CV
               </Link>
