@@ -27,3 +27,11 @@
     background-color: #00adb5;
   }
 }
+
+@media (min-width: 1024px) {
+  .page__banner {
+    height: calc(100vh - 130px);
+    display: grid;
+    place-items: center;
+  }
+}

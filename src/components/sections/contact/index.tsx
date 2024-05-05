@@ -1,17 +1,20 @@
 import GithubIcon from "@/Icons/Github";
 import LinkedInIcon from "@/Icons/LinkedIn";
 import Link from "next/link";
-import React from "react";
 
+import "./contact.scss";
+import PhoneIcon from "@/Icons/Phone";
+import MailIcon from "@/Icons/Mail";
+import LocationIcon from "@/Icons/Location";
 export default function Contact() {
   return (
     <section className="contact section__gap">
       <div className="container">
-        <div className="lg:grid grid-cols-2">
-          <div className="col-span-1">
-            <h2>Let&rsquo;s Connect</h2>
-            <p>If you ever want to make some small talk you can find me on social media </p>
-            <div className="flex justify-start items-center gap-6 mt-6">
+        <div className="lg:grid grid-cols-2 lg:gap-12">
+          <div className="col-span-1 mb-8">
+            <h2 className="mb-8">Let&rsquo;s Connect</h2>
+            <p className="text-[22px] mb-8">If you ever want to make some small talk you can find me on social media </p>
+            <div className="flex justify-start items-center gap-6 ">
               <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
                 <GithubIcon />
               </Link>
@@ -24,21 +27,39 @@ export default function Contact() {
               </Link>
             </div>
           </div>
+
           <div className="col-span-1">
-            <form>
-              <div className="input__field">
-                <input type="text" placeholder="Name" />
+            <div className="contact__item">
+              <div className="icon">
+                <PhoneIcon />
               </div>
-              <div className="input__field">
-                <input type="tel" placeholder="Phone Number" />
+              <div className="text">
+                <Link href={"tel:+977 9812767046"} className="text-[22px] text-white block">
+                  +977 9812767046
+                </Link>
+                <Link href={"tel:+977 9848413085"} className="text-[22px] text-white block">
+                  +977 9848413085
+                </Link>
               </div>
-              <div className="input__field">
-                <input type="email" placeholder="Email" />
+            </div>
+            <div className="contact__item">
+              <div className="icon">
+                <MailIcon />
               </div>
-              <div className="input__field">
-                <textarea cols={30} rows={5} placeholder="Message"></textarea>
+              <div className="text">
+                <Link href={"mailto:connectjhukal@gmail.com"} className="text-[22px] text-white block">
+                  connectjhukal@gmail.com
+                </Link>
               </div>
-            </form>
+            </div>
+            <div className="contact__item">
+              <div className="icon">
+                <LocationIcon />
+              </div>
+              <div className="text">
+                <p className="text-[22px]">Kathmandu, Nepal</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
