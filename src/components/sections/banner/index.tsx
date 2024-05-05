@@ -24,8 +24,7 @@ export default function PageBanner() {
               Hello! <br /> <span className=" leading-[1.2]">I&rsquo;m Arjun Jhukal.</span>
             </h1>
             <p className="text-[24px] text-white lg:max-w-[80%] mb-8">
-              A multidisciplinary <span className="text-primary">software developer</span> with a passion for developing something new something
-              useful
+              A <span className="text-primary">software developer</span> shaping innovative, scalable solutions for tomorrow&apos;s digital landscape.
             </p>
             <div className="flex justify-start items-center gap-6">
               <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
