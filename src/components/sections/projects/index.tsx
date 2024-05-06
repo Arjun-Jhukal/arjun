@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./project.scss";
 import AngleLeftIcon from "@/Icons/AngleLeft";
 import AngleRightIcon from "@/Icons/AngleRight";
+import { SingleProjectProps } from "@/interface";
 
 const PrevArrow = (props: any) => {
   const { onClick } = props;
@@ -30,16 +31,14 @@ const NextArrow = (props: any) => {
 
 export default function ProjectList() {
   const [activeTab, setActiveTab] = React.useState("react");
-  const tabList = [
-    { key: "html", label: "HTML" },
-    { key: "react", label: "React Js" },
-    { key: "next", label: "Next Js" },
-    { key: "full-stack", label: "Full Stack" },
-    { key: "mobile-app", label: "Mobile App" },
-  ];
+  const [activeProject, setActiveProject] = React.useState<Array<SingleProjectProps | null>>([]);
+
+  React.useEffect(() => {
+    setActiveProject(projectData[0].relatedProject);
+  }, []);
 
   const settings = {
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     prevArrow: <PrevArrow />,
@@ -55,11 +54,126 @@ export default function ProjectList() {
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
   };
+
+  const projectData = [
+    {
+      id: 1,
+      key: "html",
+      label: "HTML",
+      relatedProject: [
+        {
+          title: "News Portal",
+          techUsed: ["HTML", "Bootstrap", "Javascript"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "PTE Voucher Booking",
+          techUsed: ["HTML", "Bootstrap", "Javascript"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "E-Commerce",
+          techUsed: ["HTML", "Bootstrap", "Javascript"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+      ],
+    },
+    {
+      id: 2,
+      key: "react",
+      label: "React JS",
+      relatedProject: [
+        {
+          title: "Blogs",
+          techUsed: ["React", "Tailwind"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Dashboard",
+          techUsed: ["React", "MUI", "Tailwind"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Portfolio",
+          techUsed: ["React", "Bootstrap"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Human Resource Information System",
+          techUsed: ["React", "Material UI"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+      ],
+    },
+    {
+      id: 3,
+      key: "next",
+      label: "Next JS",
+      relatedProject: [
+        {
+          title: "Online Khabar Clone",
+          techUsed: ["Next JS", "Tailwind", "Dato CMS"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Personal Portfolio",
+          techUsed: ["Next JS", "Tailwind", "Sanity"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Project Scheduler App",
+          techUsed: ["Next JS", "Bootstrap"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+        {
+          title: "Exam Preparation System",
+          techUsed: ["React", "Material UI"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+        },
+      ],
+    },
+    {
+      id: 4,
+      key: "full_stack",
+      label: "Full Stack",
+      relatedProject: [],
+    },
+    {
+      id: 5,
+      key: "mobile_app",
+      label: "Mobile App",
+      relatedProject: [],
+    },
+  ];
+
+  console.log(activeProject);
 
   return (
     <section className="projects section__gap">
@@ -69,12 +183,13 @@ export default function ProjectList() {
         </div>
         <div className="project__wrapper">
           <ul className="flex justify-center items-center flex-wrap gap-4 mb-8">
-            {tabList?.map((tab) => (
+            {projectData?.map((tab) => (
               <li key={tab.key}>
                 <button
                   className={tab.key === activeTab ? "active" : ""}
                   onClick={() => {
                     setActiveTab(tab.key);
+                    setActiveProject(tab.relatedProject);
                   }}
                 >
                   {tab.label}
@@ -82,82 +197,50 @@ export default function ProjectList() {
               </li>
             ))}
           </ul>
-          <div className="project__tab__items">
-            <Slider {...settings}>
-              <div className="project__tab__item">
-                <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
-                </div>
-                <div className="project__tab__item-text">
-                  <span>HTML</span>
-                  <h3>Cleaning Firm</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
-                    <Link href={"#"} className="btn btn__filled">
-                      Source Code
-                    </Link>
-                    <Link href={"#"} className="btn btn__outline">
-                      Live Site
-                    </Link>
+          {activeProject.length > 0 ? (
+            <div className="project__tab__items">
+              <Slider {...settings}>
+                {activeProject?.map((project) => (
+                  <div className="project__tab__item " key={project?.title}>
+                    <div className="md:flex justify-start items-center gap-4">
+                      <div className="project__tab__item-image">
+                        <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
+                      </div>
+                      <div className="project__tab__item-text">
+                        <h3>{project?.title}</h3>
+                        <p className="hidden md:block">{project?.brief}</p>
+                        <div className="flex justify-start items-center gap-4 flex-wrap mb-4">
+                          {project?.techUsed.map((tech) => {
+                            return <span key={tech}>{tech}</span>;
+                          })}
+                        </div>
+                        <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
+                          {project?.liveLink ? (
+                            <Link href={"#"} className="btn btn__outline lg:order-2">
+                              Live Site
+                            </Link>
+                          ) : (
+                            ""
+                          )}
+                          {project?.sourceCode ? (
+                            <Link href={"#"} className="btn btn__filled lg:order-1">
+                              Source Code
+                            </Link>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="project__tab__item">
-                <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
-                </div>
-                <div className="project__tab__item-text">
-                  <span>HTML</span>
-                  <h3>Cleaning Firm</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
-                    <Link href={"#"} className="btn btn__filled">
-                      Source Code
-                    </Link>
-                    <Link href={"#"} className="btn btn__outline">
-                      Live Site
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="project__tab__item">
-                <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
-                </div>
-                <div className="project__tab__item-text">
-                  <span>HTML</span>
-                  <h3>Cleaning Firm</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
-                    <Link href={"#"} className="btn btn__filled">
-                      Source Code
-                    </Link>
-                    <Link href={"#"} className="btn btn__outline">
-                      Live Site
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="project__tab__item">
-                <div className="project__tab__item-image">
-                  <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
-                </div>
-                <div className="project__tab__item-text">
-                  <span>HTML</span>
-                  <h3>Cleaning Firm</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nihil.</p>
-                  <div className="flex flex-col md:flex-row justify-start items-center gap-4 lg:gap-8">
-                    <Link href={"#"} className="btn btn__filled">
-                      Source Code
-                    </Link>
-                    <Link href={"#"} className="btn btn__outline">
-                      Live Site
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Slider>
-          </div>
+                ))}
+              </Slider>
+            </div>
+          ) : (
+            <div className="empty__project">
+              <p className="text-center">Coming Soon</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
