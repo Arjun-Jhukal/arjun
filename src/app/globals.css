@@ -71,7 +71,7 @@ a {
   @apply col-span-3 md:col-span-2 cursor-pointer;
 }
 .btn {
-  @apply text-[16px]  py-2 block w-[100%] text-center rounded-[4px];
+  @apply text-[22px]  py-2 block w-[100%] text-center rounded-[4px];
 }
 
 .btn__outline {

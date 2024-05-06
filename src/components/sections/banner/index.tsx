@@ -16,7 +16,8 @@ export default function PageBanner() {
               className="max-w-full h-auto"
               width={384}
               height={345}
-              placeholder="empty"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAwAB/ud+RZMAAAAASUVORK5CYII="
             />
           </div>
           <div className="lg:col-span-3 lg:order-1">
