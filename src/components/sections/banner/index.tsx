@@ -17,6 +17,7 @@ export default function PageBanner() {
               width={384}
               height={345}
               placeholder="empty"
+              priority
             />
           </div>
           <div className="lg:col-span-3 lg:order-1">
