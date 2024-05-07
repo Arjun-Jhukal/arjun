@@ -4,6 +4,10 @@ export interface SingleProjectProps {
   liveLink: string;
   sourceCode: string;
   brief: string;
+  image?: {
+    url: string;
+    alt: string;
+  };
 }
 
 export interface ProjectCategoryProps {
