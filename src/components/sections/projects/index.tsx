@@ -72,6 +72,32 @@ export default function ProjectList() {
           liveLink: "#",
           sourceCode: "#",
           brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+          image: {
+            url: "/project-05.png",
+            alt: "",
+          },
+        },
+        {
+          title: "Sanitation Service Company",
+          techUsed: ["HTML", "Bootstrap", "Javascript"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+          image: {
+            url: "/project-01.png",
+            alt: "",
+          },
+        },
+        {
+          title: "Multipurpose Co-operative",
+          techUsed: ["HTML", "Bootstrap", "Javascript"],
+          liveLink: "#",
+          sourceCode: "#",
+          brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+          image: {
+            url: "/project-02.png",
+            alt: "",
+          },
         },
         {
           title: "PTE Voucher Booking",
@@ -79,6 +105,10 @@ export default function ProjectList() {
           liveLink: "#",
           sourceCode: "#",
           brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+          image: {
+            url: "/project-04.png",
+            alt: "",
+          },
         },
         {
           title: "E-Commerce",
@@ -86,6 +116,10 @@ export default function ProjectList() {
           liveLink: "#",
           sourceCode: "#",
           brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+          image: {
+            url: "/project-03.png",
+            alt: "",
+          },
         },
       ],
     },
@@ -204,7 +238,13 @@ export default function ProjectList() {
                   <div className="project__tab__item " key={project?.title}>
                     <div className="md:flex justify-start items-center gap-4">
                       <div className="project__tab__item-image">
-                        <Image src={"/Rectangle 1.png"} alt="" width={688} height={450} className="max-w-full h-auto" />
+                        <Image
+                          src={project?.image?.url ? project.image.url : "/project-01.png"}
+                          alt=""
+                          width={688}
+                          height={450}
+                          className="max-w-full h-auto"
+                        />
                       </div>
                       <div className="project__tab__item-text">
                         <h3>{project?.title}</h3>
