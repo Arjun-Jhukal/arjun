@@ -241,8 +241,11 @@ export default function ProjectList() {
                         <Image
                           src={project?.image?.url ? project.image.url : "/project-01.png"}
                           alt=""
-                          width={688}
+                          width={1920}
                           height={450}
+                          layout="responsive"
+                          objectFit="cover"
+                          quality={75}
                           className="max-w-full h-auto"
                         />
                       </div>
