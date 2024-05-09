@@ -72,7 +72,7 @@ export default function RecentWork() {
               <div className="md:grid grid-cols-2 gap-12 items-center">
                 <div className="col-span-1 ">
                   <div className="featured__image mb-8 md:mb-0">
-                    <Image src={project.image.url} alt={project.image.alt} width={696} height={325} />
+                    <Image src={project.image.url} alt={project.image.alt} width={1020} height={325} />
                   </div>
                 </div>
                 <div className="col-span-1 max-w-[550px]">
