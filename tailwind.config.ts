@@ -22,7 +22,7 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: "#00ADB5",
+          DEFAULT: "#ef0d33",
           100: "#222831",
           200: "#393E46",
         },
@@ -31,7 +31,7 @@ const config: Config = {
         },
         white: {
           DEFAULT: "#FFF",
-          100: "#EEEEEE",
+          100: "rgb(181 164 164)",
         },
       },
     },
