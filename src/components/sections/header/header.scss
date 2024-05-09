@@ -63,6 +63,11 @@
     background-color: rgba(0, 0, 0, 0.7);
     @apply transition-all duration-300 ease-in-out opacity-0 invisible translate-x-[-100%] md:opacity-100 md:visible md:translate-x-0;
     ul {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      min-width: 350px;
       li {
         width: 100%;
         a {
@@ -73,6 +78,16 @@
 
     &.active {
       @apply opacity-100 visible translate-x-0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    nav {
+      ul {
+        position: unset;
+      }
     }
   }
 }

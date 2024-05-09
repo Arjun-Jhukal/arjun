@@ -1,0 +1,25 @@
+.recent_work {
+  &_item {
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+
+    ul {
+      li {
+        position: relative;
+        &:not(:last-child) {
+          &::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 15px;
+            background-color: #fff;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -16px;
+          }
+        }
+      }
+    }
+  }
+}

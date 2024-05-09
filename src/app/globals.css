@@ -22,15 +22,15 @@ h2,
 h3,
 h4,
 h5 {
-  @apply font-[700];
+  @apply font-[800];
 }
 
 p {
-  @apply text-white text-[22px];
+  @apply text-white text-[18px];
 }
 
 h2 {
-  @apply xl:text-[40px] text-[32px] text-primary inline-block leading-[1.1];
+  @apply xl:text-[40px] text-[32px] text-primary  leading-[1.1];
 }
 
 label {
@@ -39,7 +39,7 @@ label {
 
 input,
 textarea {
-  @apply w-full py-2 px-4 border-[1px] border-primary text-[22px] rounded-lg;
+  @apply w-full py-2 px-4 border-[1px] border-primary text-[18px] rounded-lg;
 }
 input {
   @apply mb-4;
@@ -71,7 +71,7 @@ a {
   @apply col-span-3 md:col-span-2 cursor-pointer;
 }
 .btn {
-  @apply text-[22px]  py-2 block w-[100%] text-center rounded-[4px];
+  @apply text-[18px]  py-2  w-[100%] text-center rounded-[4px];
 }
 
 .btn__outline {
