@@ -17,6 +17,7 @@ export default function PageBanner() {
               width={384}
               height={345}
               placeholder="blur"
+              priority
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAwAB/ud+RZMAAAAASUVORK5CYII="
             />
           </div>

@@ -63,45 +63,43 @@ export default function RecentWork() {
   ];
   return (
     <section className="recent_work section__gap">
-      <div className="container">
-        <div className="section__title ">
-          <h2 className="uppercase  text-center pb-[60px] text-[45px] lg:text-[65px] font-[800]">Recent Works</h2>
-        </div>
-        {relatedProject.length > 0
-          ? relatedProject.map((project) => (
-              <div className="recent_work_item" key={project.title}>
-                <div className="md:grid grid-cols-2 gap-12 items-center">
-                  <div className="col-span-1 ">
-                    <div className="featured__image mb-8 md:mb-0">
-                      <Image src={project.image.url} alt={project.image.alt} width={696} height={325} />
-                    </div>
+      <div className="section__title ">
+        <h2 className="uppercase  text-center pb-[60px] text-[45px] lg:text-[65px] font-[800]">Recent Works</h2>
+      </div>
+      {relatedProject.length > 0
+        ? relatedProject.map((project) => (
+            <div className="recent_work_item" key={project.title}>
+              <div className="md:grid grid-cols-2 gap-12 items-center">
+                <div className="col-span-1 ">
+                  <div className="featured__image mb-8 md:mb-0">
+                    <Image src={project.image.url} alt={project.image.alt} width={696} height={325} />
                   </div>
-                  <div className="col-span-1 max-w-[550px]">
-                    <h3 className="text-[30px] font-[800] text-primary mb-8 uppercase">{project.title}</h3>
-                    <p className="text-white mb-8">{project.brief}</p>
+                </div>
+                <div className="col-span-1 max-w-[550px]">
+                  <h3 className="text-[30px] font-[800] text-primary mb-8 uppercase">{project.title}</h3>
+                  <p className="text-white mb-8">{project.brief}</p>
 
-                    <ul className="flex justify-start items-center gap-8 mb-8">
-                      {project.techUsed.map((tech) => (
-                        <li key={tech} className="capitalize text-[22px] text-white uppercase">
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
+                  <ul className="flex justify-start items-center gap-8 mb-8">
+                    {project.techUsed.map((tech) => (
+                      <li key={tech} className="capitalize text-[22px] text-white uppercase">
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
 
-                    <div className="flex justify-start items-center gap-8 ">
-                      <Link href={"#"} className="btn btn__outline">
-                        Live Site
-                      </Link>
-                      <Link href={"#"} className="btn btn__filled">
-                        Source Code
-                      </Link>
-                    </div>
+                  <div className="flex justify-start items-center gap-8 ">
+                    <Link href={"#"} className="btn btn__outline">
+                      Live Site
+                    </Link>
+                    <Link href={"#"} className="btn btn__filled">
+                      Source Code
+                    </Link>
                   </div>
                 </div>
               </div>
-            ))
-          : ""}
-      </div>
+            </div>
+          ))
+        : ""}
     </section>
   );
 }
