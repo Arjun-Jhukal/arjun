@@ -1,7 +1,21 @@
 .recent_work {
   &_item {
-    &:not(:last-child) {
-      margin-bottom: 80px;
+    &:nth-child(even) {
+      > div {
+        > div {
+          &:first-child {
+            @apply md:order-2;
+          }
+          &:last-child {
+            @apply md:order-1;
+          }
+        }
+      }
+    }
+
+    .featured__image {
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     ul {
@@ -20,6 +34,10 @@
           }
         }
       }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
     }
   }
 }
