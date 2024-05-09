@@ -70,13 +70,13 @@ export default function RecentWork() {
         {relatedProject.length > 0
           ? relatedProject.map((project) => (
               <div className="recent_work_item" key={project.title}>
-                <div className="md:grid grid-cols-2 gap-12">
+                <div className="md:grid grid-cols-2 gap-12 items-center">
                   <div className="col-span-1 ">
                     <div className="featured__image mb-8 md:mb-0">
-                      <Image src={project.image.url} alt={project.image.alt} width={576} height={325} />
+                      <Image src={project.image.url} alt={project.image.alt} width={696} height={325} />
                     </div>
                   </div>
-                  <div className="col-span-1">
+                  <div className="col-span-1 max-w-[550px]">
                     <h3 className="text-[30px] font-[800] text-primary mb-8 uppercase">{project.title}</h3>
                     <p className="text-white mb-8">{project.brief}</p>
 
