@@ -14,38 +14,37 @@ export default function Skills() {
         <div className="section__header mb-8 text-center">
           <h2>My Toolkit</h2>
         </div>
-        <div className="featured__project grid grid-cols-12 gap-8 max-w-[705px] mx-auto">
-          <Tooltip message="CSS Pre Processor">
-            <div className=" inline-block  text-center py-4 px-4 ">
-              <SassIcon />
-            </div>
-          </Tooltip>
-          <Tooltip message="CSS Framework Bootstrap">
-            <div className=" inline-block  text-center py-4 px-4 ">
-              <BootstrapIcon />
-            </div>
-          </Tooltip>
-          <Tooltip message="Javascript">
-            <div className=" inline-block  text-center py-4 px-4 ">
+        <div className="featured__project flex justify-center items-center gap-12">
+          <div>
+            <Tooltip message="Javascript">
               <JavascriptIcon />
-            </div>
-          </Tooltip>
-          <Tooltip message="React Js">
-            <div className=" inline-block  text-center py-4 px-4 ">
-              <ReactIcon />
-            </div>
-          </Tooltip>
-          <Tooltip message="Next Js">
-            <div className=" inline-block  text-center py-4 px-4 ">
-              <NextIcon />
-            </div>
-          </Tooltip>
-
-          <Tooltip message="Version Control Git">
-            <div className=" inline-block  text-center py-4 px-4 ">
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip message="Bootstrap">
+              <BootstrapIcon />
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip message="Github">
               <GitIcon />
-            </div>
-          </Tooltip>
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip message="Next Js">
+              <NextIcon />
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip message="React Js">
+              <ReactIcon />
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip message="CSS Pre Processor">
+              <SassIcon />
+            </Tooltip>
+          </div>
         </div>
       </div>
     </section>

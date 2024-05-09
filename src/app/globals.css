@@ -54,22 +54,11 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-.tooltip {
-  @apply relative text-center;
-}
-
 .tooltip__msg {
   @apply absolute top-[-30px] right-0 opacity-0 invisible;
   transition: all 0.3s ease-in-out;
 }
 
-.tooltip:hover .tooltip__msg {
-  @apply opacity-100 visible bg-primary  px-1 py-1 rounded-sm;
-}
-
-.featured__project > div {
-  @apply col-span-3 md:col-span-2 cursor-pointer;
-}
 .btn {
   @apply text-[18px]  py-2  w-[100%] text-center rounded-[4px];
 }

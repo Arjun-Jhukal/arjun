@@ -8,6 +8,7 @@
           }
           &:last-child {
             @apply md:order-1;
+            margin-left: auto;
           }
         }
       }
