@@ -59,6 +59,8 @@
   }
 }
 .header {
+  margin-bottom: 1px;
+
   nav {
     background-color: rgba(0, 0, 0, 0.7);
     @apply transition-all duration-300 ease-in-out opacity-0 invisible translate-x-[-100%] md:opacity-100 md:visible md:translate-x-0;

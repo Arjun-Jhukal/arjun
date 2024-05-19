@@ -7,42 +7,57 @@ import SassIcon from "@/Icons/Sass";
 import React from "react";
 import Tooltip from "../../molecules/tooltip";
 
+import "./skill.scss";
+import HtmlIcon from "@/Icons/Html";
+
 export default function Skills() {
+  const skillsData = [
+    {
+      tooltipMessage: "HTML",
+      icon: <HtmlIcon />,
+    },
+    {
+      tooltipMessage: "SCSS",
+      icon: <SassIcon />,
+    },
+    {
+      tooltipMessage: "Javascript",
+      icon: <JavascriptIcon />,
+    },
+    {
+      tooltipMessage: "Bootstrap",
+      icon: <BootstrapIcon />,
+    },
+    {
+      tooltipMessage: "GitHub",
+      icon: <GitIcon />,
+    },
+    {
+      tooltipMessage: "Next Js",
+      icon: <NextIcon />,
+    },
+    {
+      tooltipMessage: "React Js",
+      icon: <ReactIcon />,
+    },
+  ];
   return (
-    <section className="skills section__gap">
+    <section className="skills section__gap bg-black-100">
       <div className="container">
-        <div className="section__header mb-8 text-center">
-          <h2>My Toolkit</h2>
+        <div className="section__title ">
+          <h2 className="uppercase pb-[60px] ">Toolkit</h2>
         </div>
-        <div className="featured__project flex justify-center items-center gap-12">
-          <div>
-            <Tooltip message="Javascript">
-              <JavascriptIcon />
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip message="Bootstrap">
-              <BootstrapIcon />
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip message="Github">
-              <GitIcon />
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip message="Next Js">
-              <NextIcon />
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip message="React Js">
-              <ReactIcon />
-            </Tooltip>
-          </div>
-          <div>
-            <Tooltip message="CSS Pre Processor">
-              <SassIcon />
+        <div className="skills__list flex justify-start items-center flex-wrap">
+          {skillsData.map((skill, index) => (
+            <div className="skills__list-item" key={skill.tooltipMessage + index.toString()}>
+              <Tooltip message={skill.tooltipMessage}>{skill.icon}</Tooltip>
+            </div>
+          ))}
+          <div className="skills__list-item">
+            <Tooltip message="Coming Soon">
+              <p className="empty">
+                <span>Uploading</span>
+              </p>
             </Tooltip>
           </div>
         </div>

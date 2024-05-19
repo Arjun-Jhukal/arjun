@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +7,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Karla", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .flex-center {
@@ -23,14 +24,25 @@ h3,
 h4,
 h5 {
   @apply font-[800];
+  font-family: "Karla", sans-serif;
 }
 
 p {
-  @apply text-white text-[18px];
+  @apply text-black-300 text-[18px] md:text-[20px];
+  letter-spacing: 1px;
+  line-height: 2.15;
+}
+
+h1 {
+  @apply text-[32px] lg:text-[65px] font-[800] text-primary uppercase leading-[1.1];
 }
 
 h2 {
-  @apply xl:text-[40px] text-[32px] text-primary  leading-[1.1];
+  @apply lg:text-[40px] text-[32px] text-primary  leading-[1.1];
+}
+
+h3 {
+  @apply text-[24px] lg:text-[28px] font-[800] text-primary;
 }
 
 label {
@@ -48,7 +60,7 @@ svg {
   width: 48px;
   height: 48px;
   @apply text-white;
-  fill: #fff;
+  /* fill: #fff; */
 }
 a {
   transition: all 0.3s ease-in-out;
@@ -60,20 +72,24 @@ a {
 }
 
 .btn {
-  @apply text-[18px]  py-2  w-[100%] text-center rounded-[4px];
+  @apply text-[20px]   w-[100%] text-center py-2 transition-all duration-300 ease-in-out;
 }
 
 .btn__outline {
-  @apply border-[1px] border-solid border-primary text-white hover:bg-primary transition-all duration-300 ease-in-out;
+  @apply border-[1px] border-solid border-primary  hover:bg-primary  text-primary hover:text-white;
 }
 .btn__filled {
-  @apply bg-primary text-white hover:bg-blue;
+  @apply bg-primary text-white relative;
 }
 @layer utilities {
   .section__gap {
-    @apply lg:pb-[100px] pb-[80px];
+    @apply lg:mb-[200px] md:mb-[120px] mb-[80px];
   }
   .section__title {
     @apply text-center lg:text-start mb-8;
+  }
+  .fixed-download-btn svg {
+    @apply w-[32px] h-[32px];
+    fill: #fff;
   }
 }

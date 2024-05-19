@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactElement }) {
   return (
     <html lang="en">
-      <body className="bg-primary-100">{children} </body>
+      <body>{children} </body>
     </html>
   );
 }

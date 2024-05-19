@@ -1,0 +1,73 @@
+.skills {
+  @apply py-[80px] md:py-[120px] lg:py-[200px];
+
+  svg {
+    width: 115px;
+    height: 115px;
+    fill: #fff;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out;
+  }
+  p {
+    &.empty {
+      @apply text-white text-center relative;
+
+      &::before,
+      &::after {
+        content: "";
+        @apply absolute left-[-35px] bg-primary top-[-35px];
+      }
+      &::before {
+        @apply w-[1px] h-[50px];
+      }
+      &::after {
+        @apply h-[1px] w-[50px];
+      }
+
+      span {
+        @apply block text-primary uppercase text-[14px] relative;
+        line-height: 29px;
+
+        &::before,
+        &::after {
+          content: "";
+          @apply absolute right-[-25px] md:right-[-35px] bg-primary bottom-[-25px] md:bottom-[-35px];
+        }
+        &::before {
+          @apply w-[1px] h-[50px];
+        }
+        &::after {
+          @apply h-[1px] w-[50px];
+        }
+      }
+    }
+  }
+
+  .skills__list {
+    &-item {
+      @apply basis-[50%] md:basis-[33%] lg:basis-[25%] p-4 lg:py-12 border-r-[1px] border-solid border-black-300 border-b-[1px] min-w-[150px] min-h-[150px] h-full grid place-items-center;
+      cursor: help;
+      &:hover {
+        svg {
+          fill: #ef0d33;
+        }
+        border-color: #ef0d33;
+      }
+      &:nth-last-child(-n + 2) {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills {
+    .skills__list {
+      &-item {
+        &:nth-last-child(-n + 4) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

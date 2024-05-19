@@ -25,10 +25,10 @@ export default function Tooltip({ children, message }: { children: React.ReactEl
       {children}
       {tooltipVisible && (
         <div
-          className="tooltip absolute bg-primary text-white p-2 rounded shadow text-nowrap z-[15]"
+          className="tooltip absolute bg-white  p-2 rounded shadow text-nowrap z-[15]"
           style={{ top: tooltipPosition.top, left: tooltipPosition.left }}
         >
-          <p className="text-[12px]">{message}</p>
+          <p className="text-[12px] text-black-100">{message}</p>
         </div>
       )}
     </div>
