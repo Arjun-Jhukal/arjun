@@ -1,7 +1,12 @@
 import { Metadata } from "next";
 import React from "react";
+import { Open_Sans } from "next/font/google";
 
 import "./globals.css";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Arjun Jhukal | Frontend Developer",
@@ -24,7 +29,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactElement }) {
   return (
     <html lang="en">
-      <body>{children} </body>
+      <body className={openSans.className}>{children} </body>
     </html>
   );
 }
