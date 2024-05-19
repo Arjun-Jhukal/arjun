@@ -4,8 +4,8 @@ export default function Experience() {
   return (
     <section className="experience section__gap">
       <div className="container">
-        <div className="section__title mb-8 hidden lg:block">
-          <h2 className="block text-center">Education & Experience</h2>
+        <div className="section__title ">
+          <h2 className="uppercase pb-[60px] text-center">Education & Experience</h2>
         </div>
         <div className="grid grid-cols-2 gap-4 lg:gap-12">
           <div className="education__list col-span-2 lg:col-span-1 mb-8 lg:mb-0">

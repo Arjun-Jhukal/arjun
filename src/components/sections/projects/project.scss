@@ -2,10 +2,10 @@
   ul {
     li {
       button {
-        @apply bg-white-100 px-3 py-1 rounded-[20px] transition-all duration-300 ease-in-out hover:bg-primary hover:text-white lg:text-[22px];
+        @apply bg-white-100 px-3 py-1 rounded-[20px] transition-all duration-300 ease-in-out hover:bg-primary hover:text-black-300 lg:text-[22px];
 
         &.active {
-          @apply bg-primary text-white;
+          @apply bg-primary text-black-300;
         }
       }
     }
@@ -21,7 +21,7 @@
       @apply mb-6 md:mb-0 min-w-[50%] rounded-[12px] overflow-hidden;
     }
     &-text {
-      @apply left-[12px] right-[12px] bottom-[12px] bg-primary-100 rounded-[12px];
+      @apply left-[12px] right-[12px] bottom-[12px] bg-black-100 rounded-[12px];
 
       span {
         @apply inline-block  text-[14px] md:text-[18px] font-[500] text-primary;
@@ -34,7 +34,7 @@
         }
       }
       h3 {
-        @apply text-[20px] text-white mb-2 uppercase;
+        @apply text-[20px] text-black-300 mb-2 uppercase;
       }
       p {
         @apply text-[16px] mb-4;
@@ -44,7 +44,7 @@
 
   .prev-btn,
   .next-btn {
-    @apply w-[48px] h-[48px] rounded-[50%] bg-primary-200 grid place-items-center opacity-20 absolute top-[27%] md:top-[35%]  z-10 transition-all duration-300 ease-in-out hover:opacity-60;
+    @apply w-[48px] h-[48px] rounded-[50%] bg-black-200 grid place-items-center opacity-20 absolute top-[27%] md:top-[35%]  z-10 transition-all duration-300 ease-in-out hover:opacity-60;
 
     svg {
       width: 32px;

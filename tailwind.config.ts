@@ -23,8 +23,13 @@ const config: Config = {
       colors: {
         primary: {
           DEFAULT: "#ef0d33",
-          100: "#222831",
+          100: "#a90722",
+        },
+        black: {
+          DEFAULT: "#000",
+          100: "#131314",
           200: "#393E46",
+          300: "#888888",
         },
         blue: {
           DEFAULT: "rgba(14,130,136,1)",

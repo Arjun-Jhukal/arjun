@@ -8,13 +8,13 @@ import MailIcon from "@/Icons/Mail";
 import LocationIcon from "@/Icons/Location";
 export default function Contact() {
   return (
-    <section className="contact section__gap">
+    <section className="contact ">
       <div className="container">
         <div className="lg:grid grid-cols-2 lg:gap-12">
           <div className="col-span-1 mb-8">
             <h2 className="mb-8">Let&rsquo;s Connect</h2>
             <p className="text-[22px] mb-8">If you ever want to make some small talk you can find me on social media </p>
-            <div className="flex justify-start items-center gap-6 ">
+            <div className="flex justify-start items-center gap-6 social-links">
               <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
                 <GithubIcon />
               </Link>
@@ -34,10 +34,10 @@ export default function Contact() {
                 <PhoneIcon />
               </div>
               <div className="text">
-                <Link href={"tel:+977 9812767046"} className="text-[22px] text-white block">
+                <Link href={"tel:+977 9812767046"} className="text-[22px] text-black-300 block">
                   +977 9812767046
                 </Link>
-                <Link href={"tel:+977 9848413085"} className="text-[22px] text-white block">
+                <Link href={"tel:+977 9848413085"} className="text-[22px] text-black-300 block">
                   +977 9848413085
                 </Link>
               </div>
@@ -47,7 +47,7 @@ export default function Contact() {
                 <MailIcon />
               </div>
               <div className="text">
-                <Link href={"mailto:connectjhukal@gmail.com"} className="text-[22px] text-white block">
+                <Link href={"mailto:connectjhukal@gmail.com"} className="text-[22px] text-black-300 block">
                   connectjhukal@gmail.com
                 </Link>
               </div>

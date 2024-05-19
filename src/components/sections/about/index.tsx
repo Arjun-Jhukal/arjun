@@ -11,8 +11,8 @@ export default function About() {
             <Image src="/banner.png" alt="" className="max-w-full h-auto rounded-lg " width={828} height={552} />
           </div>
           <div className="col-span-4 mb-8 lg:order-2 ">
-            <div className="section__title">
-              <h2>About My Journey</h2>
+            <div className="section__title ">
+              <h2 className="uppercase pb-[40px]">About Myself</h2>
             </div>
             <div className="about__brief">
               <p className="mb-4">Hello again! Thanks for scrolling this far!!.</p>
@@ -32,7 +32,7 @@ export default function About() {
               <Link
                 href={"https://drive.google.com/file/d/1Vrw4jljK1t_pkAXytdsbYiF9eqORMc-W/view?usp=sharing"}
                 target="_blank"
-                className="block text-center lg:inline-block border-[1px] border-solid border-primary text-white py-2 lg:px-12 text-[22px] capitalize hover:bg-primary rounded-[4px]"
+                className="block text-center lg:inline-block border-[1px] border-solid border-primary text-black-300 py-2 lg:px-12 text-[22px] capitalize hover:bg-primary rounded-[4px]"
               >
                 Download CV
               </Link>

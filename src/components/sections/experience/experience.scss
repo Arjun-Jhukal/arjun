@@ -1,9 +1,9 @@
 .experience {
   h3 {
-    @apply text-[32px] text-white mb-2;
+    @apply text-[32px] text-black-300 mb-2;
   }
   span {
-    @apply text-white lg:text-primary text-[22px];
+    @apply text-black-300 lg:text-primary text-[22px];
   }
   p {
     @apply text-[16px];
@@ -12,20 +12,32 @@
   &__item {
     position: relative;
     &:not(:last-child) {
-      @apply mb-8 border-b-[1px] border-solid border-primary-200 pb-8;
+      @apply mb-8  pb-8;
 
-      &::before {
+      &::after {
         content: "";
         @apply absolute bottom-0 left-0 h-[1px] bg-primary;
-        height: 1px;
+        height: 2px;
         width: 0;
         transform-origin: bottom right;
         transition: width 0.3s ease;
       }
 
-      &:hover::before {
+      &::before {
+        content: "";
+        @apply absolute bottom-0 left-0 h-[1px] bg-black-300;
+        height: 2px;
         width: 100%;
-        transform-origin: bottom left;
+        transform-origin: bottom right;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        border-color: transparent;
+        &::after {
+          width: 100%;
+          transform-origin: bottom left;
+        }
       }
     }
   }
