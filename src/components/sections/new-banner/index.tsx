@@ -10,7 +10,7 @@ export default function NewBanner() {
     <section className="new__banner  flex justify-center items-center section__gap bg-black-100">
       <div className=" md:grid grid-cols-2 items-center gap-8 xl:gap-20">
         <div className="col-span-1 mb-8 md:mb-0">
-          <Image src={"/banner-01.jpeg"} alt="Arjun Jhukal - a frontend developer" width={1280} height={1599} />
+          <Image src={"/banner-01.jpeg"} alt="Arjun Jhukal - a frontend developer" width={1280} height={1599} priority />
         </div>
         <div className="col-span-1 new__banner-content pb-[80px] px-4 md:px-0 md:pb-0">
           <h1 className="text-white mb-2">Hello !</h1>
