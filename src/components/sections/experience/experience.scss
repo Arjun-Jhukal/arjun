@@ -1,9 +1,13 @@
 .experience {
   h3 {
-    @apply text-[32px] text-black-300 mb-2;
+    @apply mb-2;
   }
   span {
-    @apply text-black-300 lg:text-primary text-[22px];
+    @apply text-black-300  text-[22px];
+
+    a {
+      @apply text-primary  font-[500];
+    }
   }
   p {
     @apply text-[16px];

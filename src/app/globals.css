@@ -27,7 +27,7 @@ h5 {
 p {
   @apply text-black-300 text-[18px] md:text-[20px];
   letter-spacing: 1px;
-  line-height: 2.15;
+  line-height: 1.8;
 }
 
 h1 {
@@ -39,7 +39,7 @@ h2 {
 }
 
 h3 {
-  @apply text-[24px] lg:text-[28px] font-[800] text-primary;
+  @apply text-[24px] lg:text-[28px] font-[800] text-black-300;
 }
 
 label {
