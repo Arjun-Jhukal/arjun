@@ -13,7 +13,7 @@ export default function Contact() {
         <div className="lg:grid grid-cols-2 lg:gap-12">
           <div className="col-span-1 mb-8">
             <h2 className="mb-8">Let&rsquo;s Connect</h2>
-            <p className="text-[22px] mb-8">If you ever want to make some small talk you can find me on social media </p>
+            <p className="text-[18px] mb-8">If you ever want to make some small talk you can find me on social media </p>
             <div className="flex justify-start items-center gap-6 social-links">
               <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
                 <GithubIcon />
@@ -57,7 +57,7 @@ export default function Contact() {
                 <LocationIcon />
               </div>
               <div className="text">
-                <p className="text-[22px]">Kathmandu, Nepal</p>
+                <p className="text-[18px]">Kathmandu, Nepal</p>
               </div>
             </div>
           </div>

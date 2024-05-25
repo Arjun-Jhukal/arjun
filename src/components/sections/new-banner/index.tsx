@@ -4,6 +4,7 @@ import GithubIcon from "@/Icons/Github";
 import LinkedInIcon from "@/Icons/LinkedIn";
 
 import "./new-banner.scss";
+import UpworkIcon from "@/Icons/upwork";
 
 export default function NewBanner() {
   return (
@@ -30,6 +31,13 @@ export default function NewBanner() {
               target="_blank"
             >
               <LinkedInIcon />
+            </Link>
+            <Link
+              href={"https://www.upwork.com/freelancers/~01203b19e827ffa79f?mp_source=share"}
+              className="hover:scale-105 transition-transform duration-200 ease-in"
+              target="_blank"
+            >
+              <UpworkIcon />
             </Link>
           </div>
         </div>

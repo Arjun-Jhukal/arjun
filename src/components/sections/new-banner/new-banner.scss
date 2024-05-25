@@ -1,5 +1,9 @@
 .new__banner {
   &-content {
     max-width: 800px;
+
+    svg {
+      fill: #fff !important;
+    }
   }
 }
