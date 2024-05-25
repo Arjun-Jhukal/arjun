@@ -6,6 +6,7 @@ import "./contact.scss";
 import PhoneIcon from "@/Icons/Phone";
 import MailIcon from "@/Icons/Mail";
 import LocationIcon from "@/Icons/Location";
+import UpworkIcon from "@/Icons/upwork";
 export default function Contact() {
   return (
     <section className="contact ">
@@ -24,6 +25,13 @@ export default function Contact() {
                 target="_blank"
               >
                 <LinkedInIcon />
+              </Link>
+              <Link
+                href={"https://www.upwork.com/freelancers/~01203b19e827ffa79f?mp_source=share"}
+                className="hover:scale-105 transition-transform duration-200 ease-in"
+                target="_blank"
+              >
+                <UpworkIcon />
               </Link>
             </div>
           </div>
