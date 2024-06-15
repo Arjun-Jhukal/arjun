@@ -1,8 +1,11 @@
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+  scroll-padding: 50px;
+}
 body {
   font-family: "Open Sans", sans-serif;
 }

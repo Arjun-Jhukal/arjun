@@ -9,7 +9,10 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Arjun Jhukal | Frontend Developer",
+  title: {
+    default: "Frontend Developer | Arjun Jhukal From Nepal",
+    template: "%s - Arjun Jhukal | Frontend Developer",
+  },
 
   description: "Hi I'm Arjun Jhukal, a software developer creating seamless and optimized web applications since 2020",
 

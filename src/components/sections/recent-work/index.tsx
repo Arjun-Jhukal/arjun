@@ -62,7 +62,7 @@ export default function RecentWork() {
     },
   ];
   return (
-    <section className="recent_work section__gap">
+    <section className="recent_work section__gap" id="projects">
       <div className="section__title ">
         <h2 className="uppercase pb-[60px] text-center">Recent Works</h2>
       </div>

@@ -42,7 +42,7 @@ export default function Skills() {
     },
   ];
   return (
-    <section className="skills section__gap bg-black-100">
+    <section className="skills section__gap bg-black-100" id="skills">
       <div className="container">
         <div className="section__title ">
           <h2 className="uppercase pb-[60px] ">Toolkit</h2>

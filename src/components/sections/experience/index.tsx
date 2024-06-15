@@ -2,7 +2,7 @@ import "./experience.scss";
 
 export default function Experience() {
   return (
-    <section className="experience section__gap">
+    <section className="experience section__gap" id="experience">
       <div className="container">
         <div className="section__title hidden lg:block">
           <h2 className="uppercase pb-[60px] text-center">Education & Experience</h2>

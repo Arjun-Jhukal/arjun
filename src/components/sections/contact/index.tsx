@@ -9,7 +9,7 @@ import LocationIcon from "@/Icons/Location";
 import UpworkIcon from "@/Icons/upwork";
 export default function Contact() {
   return (
-    <section className="contact ">
+    <section className="contact " id="contact">
       <div className="container">
         <div className="lg:grid grid-cols-2 lg:gap-12">
           <div className="col-span-1 mb-8">

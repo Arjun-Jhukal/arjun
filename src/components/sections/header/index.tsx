@@ -4,6 +4,7 @@ import "./header.scss";
 import Link from "next/link";
 import Image from "next/image";
 import CloseIcon from "@/Icons/Xmark";
+
 export default function Header() {
   const [menuActive, setMenuActive] = React.useState(false);
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
@@ -26,7 +27,7 @@ export default function Header() {
     };
   }, []);
   return (
-    <header className="header bg-black-100">
+    <header className="header bg-black-100 fixed top-0 left-0 right-0 z-10">
       <div className="container">
         <div className="flex justify-between items-center py-4 md:py-0">
           <Link href={"/"}>
@@ -44,28 +45,34 @@ export default function Header() {
                 <button className="close__icon" onClick={handleMobileMenuChange}></button>
               </li>
               <li>
-                <Link href={"/"} className="text-black-300 text-[22px]  inline-block hover:text-primary">
+                <Link href={"/"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-black-300 text-[22px]  inline-block hover:text-primary">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href={"/"} className="text-black-300 text-[22px]  inline-block hover:text-primary">
+                <Link href={"#projects"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
                   Project
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-black-300 text-[22px]  inline-block hover:text-primary">
+                <Link href={"#about"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href={"#experience"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                  Experience
+                </Link>
+              </li>
+
+              <li>
+                <Link href={"#skills"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
                   Skills
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="text-black-300 text-[22px]  inline-block hover:text-primary">
-                  Reviews
+                <Link href={"#contact"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                  Contact
                 </Link>
               </li>
             </ul>
