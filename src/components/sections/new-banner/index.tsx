@@ -17,8 +17,7 @@ export default function NewBanner() {
           <h1 className="text-white mb-2">Hello !</h1>
           <h1 className="mb-4 text-white">I am Arjun Jhukal</h1>
           <p className="text-black-300 mb-8">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis qui vel eum aut at unde incidunt ratione harum, sapiente cumque placeat
-            quidem consequuntur dolor rerum quia corporis dolore iusto quisquam.
+            I translate designs into code, making sure everything runs smoothly and looks fantastic across all devices.
           </p>
 
           <div className="flex justify-start items-center gap-6">

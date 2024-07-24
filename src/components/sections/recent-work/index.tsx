@@ -6,21 +6,22 @@ import Image from "next/image";
 export default function RecentWork() {
   const relatedProject = [
     {
-      title: "News Portal",
-      techUsed: ["HTML", "Bootstrap", "Javascript"],
-      liveLink: "#",
-      sourceCode: "#",
-      brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
+      title: "Story Circle",
+      techUsed: ["Next Js", "Tailwind", "DatoCMS"],
+      liveLink: "https://blog.arjunjhukal.com.np/",
+      sourceCode: "https://github.com/Arjun-Jhukal/story-circle",
+      brief:
+        "Inspired by diverse web sources, the design offers a visually compelling platform to highlight my content creation and presentation abilities.",
       image: {
         url: "/project-04.jpeg",
         alt: "",
       },
     },
     {
-      title: "Sanitation Service Company",
-      techUsed: ["HTML", "Bootstrap", "Javascript"],
-      liveLink: "#",
-      sourceCode: "#",
+      title: "Project Progress Tracker",
+      techUsed: ["Next JS", "Tailwind CSS", "Firebase"],
+      liveLink: "https://project-progress-tracker.vercel.app/",
+      sourceCode: "https://github.com/Arjun-Jhukal/project-progress-tracker",
       brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
       image: {
         url: "/project-01.jpg",
@@ -89,10 +90,10 @@ export default function RecentWork() {
                     </ul>
 
                     <div className="flex flex-col lg:flex-row justify-start items-center gap-8 ">
-                      <Link href={"#"} className="btn btn__outline">
+                      <Link href={project.liveLink} className="btn btn__outline" target="_blank">
                         Live Site
                       </Link>
-                      <Link href={"#"} className="btn btn__filled">
+                      <Link href={project.sourceCode} className="btn btn__filled" target="_blank">
                         Source Code
                       </Link>
                     </div>
