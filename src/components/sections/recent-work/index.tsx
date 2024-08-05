@@ -40,7 +40,7 @@ export default function RecentWork() {
       },
     },
     {
-      title: "PTE Voucher Booking",
+      title: "Dashboard",
       techUsed: ["HTML", "Bootstrap", "Javascript"],
       liveLink: "#",
       sourceCode: "#",
@@ -51,10 +51,10 @@ export default function RecentWork() {
       },
     },
     {
-      title: "E-Commerce",
+      title: "Online Store 3.O",
       techUsed: ["HTML", "Bootstrap", "Javascript"],
-      liveLink: "#",
-      sourceCode: "#",
+      liveLink: "https://sasto-dukan.vercel.app/",
+      sourceCode: "https://github.com/Arjun-Jhukal/sasto-dukan",
       brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
       image: {
         url: "/project-04.jpeg",
