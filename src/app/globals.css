@@ -34,11 +34,11 @@ p {
 }
 
 h1 {
-  @apply text-[32px] lg:text-[48px] font-[800] text-primary uppercase leading-[1.1];
+  @apply text-[32px] leading-[42px] md:text-[44px] md:leading-[54px] xl:text-[62px] xl:leading-[72px] font-[800] text-primary uppercase;
 }
 
 h2 {
-  @apply lg:text-[40px] text-[32px] text-primary  leading-[1.1];
+  @apply lg:text-[40px] leading-[42px] text-[32px] text-primary;
 }
 
 h3 {

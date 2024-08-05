@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section className="about section__gap" id="about">
       <div className="container">
-        <div className="lg:grid lg:grid-cols-8 lg:gap-12">
+        <div className="lg:grid lg:grid-cols-8 lg:gap-12 items-center">
           <div className="col-span-4 text-center lg:order-1 mb-8 mb-lg-0">
             <Image src="/banner.png" alt="" className="max-w-full h-auto rounded-lg " width={828} height={552} />
           </div>

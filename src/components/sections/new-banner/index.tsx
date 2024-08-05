@@ -9,15 +9,17 @@ import UpworkIcon from "@/Icons/upwork";
 export default function NewBanner() {
   return (
     <section className="new__banner  flex justify-center items-center section__gap bg-black-100">
-      <div className=" md:grid grid-cols-2 items-center gap-8 xl:gap-20">
-        <div className="col-span-1 mb-8 md:mb-0">
-          <Image src={"/banner-01.jpeg"} alt="Arjun Jhukal - a frontend developer" width={1280} height={1599} priority />
+      <div className=" lg:grid grid-cols-2 items-center gap-8 xl:gap-20">
+        <div className="col-span-1 mb-8 lg:mb-0">
+          <Image src={"/banner-05.png"} alt="Arjun Jhukal - a frontend developer" width={1280} height={1599} priority />
         </div>
-        <div className="col-span-1 new__banner-content pb-[80px] px-4 md:px-0 md:pb-0">
-          <h1 className="text-white mb-2">Hello !</h1>
-          <h1 className="mb-4 text-white">I am Arjun Jhukal</h1>
-          <p className="text-black-300 mb-8">
-            I translate designs into code, making sure everything runs smoothly and looks fantastic across all devices.
+        <div className="col-span-1 new__banner-content pb-[80px] px-4 lg:px-0 lg:pb-0">
+          <h1 className="text-white ">Hi !</h1>
+          <h1 className=" text-white mb-8">I'm Arjun Jhukal</h1>
+          <p className="text-white mb-8">
+            I'm a passionate Front-End Developer with a knack for creating dynamic and visually appealing web experiences. Based in Kathmandu, I have
+            a strong foundation in HTML, CSS, and JavaScript, along with experience in modern frameworks and libraries such as React.js. My goal is to
+            transform ideas into accessible, user-friendly, and responsive web applications.
           </p>
 
           <div className="flex justify-start items-center gap-6">

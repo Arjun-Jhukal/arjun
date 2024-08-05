@@ -24,7 +24,7 @@ export default function RecentWork() {
       sourceCode: "https://github.com/Arjun-Jhukal/project-progress-tracker",
       brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
       image: {
-        url: "/project-01.jpg",
+        url: "/project-01.png",
         alt: "",
       },
     },
@@ -57,7 +57,7 @@ export default function RecentWork() {
       sourceCode: "https://github.com/Arjun-Jhukal/sasto-dukan",
       brief: "An e-commerce website with a focus on HTML, CSS, Bootstrap, and JavaScript.",
       image: {
-        url: "/project-04.jpeg",
+        url: "/project-02.png",
         alt: "",
       },
     },
