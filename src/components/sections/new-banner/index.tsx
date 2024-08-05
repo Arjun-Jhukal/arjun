@@ -17,9 +17,9 @@ export default function NewBanner() {
           <h1 className="text-white ">Hi !</h1>
           <h1 className=" text-white mb-8">I'm Arjun Jhukal</h1>
           <p className="text-white mb-8">
-            I'm a passionate Front-End Developer with a knack for creating dynamic and visually appealing web experiences. Based in Kathmandu, I have
+            {`  I'm a passionate Front-End Developer with a knack for creating dynamic and visually appealing web experiences. Based in Kathmandu, I have
             a strong foundation in HTML, CSS, and JavaScript, along with experience in modern frameworks and libraries such as React.js. My goal is to
-            transform ideas into accessible, user-friendly, and responsive web applications.
+            transform ideas into accessible, user-friendly, and responsive web applications.`}
           </p>
 
           <div className="flex justify-start items-center gap-6">
