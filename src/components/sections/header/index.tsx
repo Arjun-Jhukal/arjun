@@ -45,33 +45,33 @@ export default function Header() {
                 <button className="close__icon" onClick={handleMobileMenuChange}></button>
               </li>
               <li>
-                <Link href={"/"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={"#projects"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#projects"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   Project
                 </Link>
               </li>
               <li>
-                <Link href={"#about"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#about"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   About
                 </Link>
               </li>
               <li>
-                <Link href={"#experience"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#experience"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   Experience
                 </Link>
               </li>
 
               <li>
-                <Link href={"#skills"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#skills"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   Skills
                 </Link>
               </li>
               <li>
-                <Link href={"#contact"} className="text-black-300 xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#contact"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
                   Contact
                 </Link>
               </li>
