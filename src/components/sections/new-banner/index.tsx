@@ -8,38 +8,50 @@ import UpworkIcon from "@/Icons/upwork";
 
 export default function NewBanner() {
   return (
-    <section className="new__banner  flex justify-center items-center section__gap bg-black-100">
-      <div className=" lg:grid grid-cols-2 items-center gap-8 xl:gap-20">
-        <div className="col-span-1 mb-8 lg:mb-0">
-          <Image src={"/banner-05.png"} alt="Arjun Jhukal - a frontend developer" width={1280} height={1599} priority />
-        </div>
-        <div className="col-span-1 new__banner-content pb-[80px] px-4 lg:px-0 lg:pb-0">
-          <h1 className="text-white ">Hi !</h1>
-          <h1 className=" text-white mb-8">I'm Arjun Jhukal</h1>
-          <p className="text-white mb-8">
-            {`  I'm a passionate Front-End Developer with a knack for creating dynamic and visually appealing web experiences. Based in Kathmandu, I have
-            a strong foundation in HTML, CSS, and JavaScript, along with experience in modern frameworks and libraries such as React.js. My goal is to
-            transform ideas into accessible, user-friendly, and responsive web applications.`}
-          </p>
+    <section className="new__banner section__gap ">
+      <div className="container">
+        <div className="banner__content-wrapper lg:grid grid-cols-2 items-center gap-4">
+          <div className="banner__content py-[90px]">
+            <p className="uppercase mb-[50px]">Frontend Developer</p>
+            <h1 className="mb-[40px]">
+              <span className="bg-white-100 pr-[20px]">
+                Hello I<span className="text-primary">'</span>m
+              </span>
+              <br />
+              <span className="bg-white-100">
+                <span className="text-primary">Arjun</span> Jhukal
+              </span>
+            </h1>
+            <p className="mb-[60px]">
+              I believe that collaboration and creativity are the cornerstones of progress, and I am dedicated to bringing a fresh perspective to
+              every project I undertake.
+            </p>
+            <Link href={"#projects"} className=" btn btn__outline mb-[60px]">
+              Explore My Work
+            </Link>
 
-          <div className="flex justify-start items-center gap-6">
-            <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
-              <GithubIcon />
-            </Link>
-            <Link
-              href={"https://www.linkedin.com/in/arjun-jhukal/"}
-              className="hover:scale-105 transition-transform duration-200 ease-in"
-              target="_blank"
-            >
-              <LinkedInIcon />
-            </Link>
-            <Link
-              href={"https://www.upwork.com/freelancers/~01203b19e827ffa79f?mp_source=share"}
-              className="hover:scale-105 transition-transform duration-200 ease-in"
-              target="_blank"
-            >
-              <UpworkIcon />
-            </Link>
+            <div className="flex justify-start items-center gap-6">
+              <Link href={"https://github.com/Arjun-Jhukal"} className="hover:scale-105 transition-transform duration-200 ease-in" target="_blank">
+                <GithubIcon />
+              </Link>
+              <Link
+                href={"https://www.linkedin.com/in/arjun-jhukal/"}
+                className="hover:scale-105 transition-transform duration-200 ease-in"
+                target="_blank"
+              >
+                <LinkedInIcon />
+              </Link>
+              <Link
+                href={"https://www.upwork.com/freelancers/~01203b19e827ffa79f?mp_source=share"}
+                className="hover:scale-105 transition-transform duration-200 ease-in"
+                target="_blank"
+              >
+                <UpworkIcon />
+              </Link>
+            </div>
+          </div>
+          <div className="banner__image relative aspect-square  rounded-bl-[150px] overflow-hidden">
+            <Image src={"/banner.jpg"} alt="Frontend Developer Nepal Arjun Jhukal's Profile Picture" fill objectFit="cover" priority />
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import DownloadCv from "@/components/molecules/download-button";
+import { Unbounded } from "next/font/google";
 
 export default function PageLayout({
   children,
@@ -10,7 +11,7 @@ export default function PageLayout({
   return (
     <>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
       <DownloadCv />
     </>

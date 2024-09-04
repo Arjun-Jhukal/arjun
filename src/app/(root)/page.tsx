@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <NewBanner />
       <RecentWork />
       {/* <ProjectList /> */}
@@ -16,6 +16,6 @@ export default function Home() {
       <Skills />
       <Experience />
       <Contact />
-    </main>
+    </>
   );
 }

@@ -45,7 +45,7 @@ export default function Skills() {
     <section className="skills section__gap bg-black-100" id="skills">
       <div className="container">
         <div className="section__title ">
-          <h2 className="uppercase pb-[60px] ">Toolkit</h2>
+          <h2 className="uppercase pb-[60px] text-white">Toolkit</h2>
         </div>
         <div className="skills__list flex justify-start items-center flex-wrap">
           {skillsData.map((skill, index) => (

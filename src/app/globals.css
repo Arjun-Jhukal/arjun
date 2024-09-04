@@ -7,7 +7,7 @@
   scroll-padding-top: 100px;
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 .flex-center {
@@ -23,12 +23,12 @@ h2,
 h3,
 h4,
 h5 {
-  @apply font-[800];
-  font-family: "Karla", sans-serif;
+  @apply font-[400];
+  font-family: "Unbounded", sans-serif;
 }
 
 p {
-  @apply text-black-300 text-[18px] md:text-[20px];
+  @apply text-black text-[18px] font-[400];
   letter-spacing: 1px;
   line-height: 1.8;
 }
@@ -57,8 +57,8 @@ input {
   @apply mb-4;
 }
 svg {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   @apply text-white;
   /* fill: #fff; */
 }
@@ -72,14 +72,30 @@ a {
 }
 
 .btn {
-  @apply text-[20px]   w-[100%] text-center py-2 transition-all duration-300 ease-in-out;
+  cursor: pointer;
+  border-radius: 60px;
+  padding: 0 40px 3px;
+  height: 60px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 100%;
+  white-space: nowrap;
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 }
 
 .btn__outline {
-  @apply border-[1px] border-solid border-primary  hover:bg-primary  text-primary hover:text-white;
+  border: 2px solid #1d1d1d;
+  background-color: transparent;
+  color: #1d1d1d;
 }
 .btn__filled {
-  @apply bg-primary text-white relative;
+  @apply bg-primary text-white;
 }
 @layer utilities {
   .section__gap {

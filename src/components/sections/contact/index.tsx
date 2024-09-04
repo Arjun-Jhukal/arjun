@@ -9,9 +9,9 @@ import LocationIcon from "@/Icons/Location";
 import UpworkIcon from "@/Icons/upwork";
 export default function Contact() {
   return (
-    <section className="contact " id="contact">
+    <section className="contact py-[140px]" id="contact">
       <div className="container">
-        <div className="lg:grid grid-cols-2 lg:gap-12">
+        {/* <div className="lg:grid grid-cols-2 lg:gap-12">
           <div className="col-span-1 mb-8">
             <h2 className="mb-8">Let&rsquo;s Connect</h2>
             <p className="text-[18px] mb-8">If you ever want to make some small talk you can find me on social media </p>
@@ -68,6 +68,31 @@ export default function Contact() {
                 <p className="text-[18px]">Kathmandu, Nepal</p>
               </div>
             </div>
+          </div>
+        </div> */}
+        <div className="section-title text-center mb-[60px]">
+          <h2>Let's connect</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, doloremque!</p>
+        </div>
+        <div className="contact-card">
+          <div className="front-face">
+            <div className="ff-content">
+              <h3>Arjun Jhukal</h3>
+              <p>Frontend Developer</p>
+            </div>
+          </div>
+          <div className="back-face">
+            <ul>
+              <li>
+                <Link href={"tel:+977 9812767046"}>PH. +977 9812767046</Link>
+              </li>
+              <li>
+                <Link href={"mailto:connectjhukal@gmail.com"}>E-Mail. connectjhukal@gmail.com</Link>
+              </li>
+              <li>
+                <Link href={"https://arjunjhukal.com.np"}>https://arjunjhukal.com.np</Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

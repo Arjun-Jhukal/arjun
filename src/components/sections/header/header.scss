@@ -70,6 +70,7 @@
       bottom: 0;
       left: 0;
       min-width: 350px;
+      background-color: #1d1d1d;
       li {
         width: 100%;
         a {
@@ -87,9 +88,27 @@
 @media (min-width: 768px) {
   .header {
     nav {
+      background-color: transparent;
       ul {
         position: unset;
+        background-color: transparent;
       }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    position: relative;
+
+    &::before {
+      content: "";
+      background-color: #f7f7f7;
+      width: calc(100% - 35%);
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
     }
   }
 }

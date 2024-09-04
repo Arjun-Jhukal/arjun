@@ -26,16 +26,18 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
-    <header className="header bg-black-100 fixed top-0 left-0 right-0 z-10">
+    <header className="header">
       <div className="container">
-        <div className="flex justify-between items-center py-4 md:py-0">
-          <Link href={"/"}>
-            <Image src={"/logo-no-background.png"} priority alt="Arjun Jhukal - Logo" width={50} height={50} />
+        <div className="flex justify-end items-center py-4 md:py-0">
+          <Link href={"/"} className="fixed top-0 left-0 bg-primary px-2 py-4 z-[9]">
+            {/* <Image src={"/logo-no-background.png"} priority alt="Arjun Jhukal - Logo" width={50} height={50} /> */}
+            <h1 className="text-white">A.</h1>
           </Link>
           <nav className={`fixed top-0 left-0 bottom-0 right-0 md:relative z-10 ${showMobileMenu ? "active" : ""}`}>
             <ul
-              className="flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center gap-4 lg:gap-8 bg-black-100 min-h-screen max-w-[320px] p-4 md:p-0 md:min-h-[auto]"
+              className="flex flex-col md:flex-row justify-start md:justify-end items-start md:items-center gap-4 lg:gap-8  min-h-screen max-w-[320px] p-4 md:p-0 md:min-h-[auto]"
               ref={mobileMenuRef}
             >
               <li className="flex justify-between items-center mb-8 md:hidden">
@@ -45,33 +47,33 @@ export default function Header() {
                 <button className="close__icon" onClick={handleMobileMenuChange}></button>
               </li>
               <li>
-                <Link href={"/"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"/"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href={"#projects"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#projects"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   Project
                 </Link>
               </li>
               <li>
-                <Link href={"#about"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#about"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   About
                 </Link>
               </li>
               <li>
-                <Link href={"#experience"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#experience"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   Experience
                 </Link>
               </li>
 
               <li>
-                <Link href={"#skills"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#skills"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   Skills
                 </Link>
               </li>
               <li>
-                <Link href={"#contact"} className="text-white xl:text-[22px]  inline-block hover:text-primary">
+                <Link href={"#contact"} className="text-white md:text-black xl:text-[22px]  inline-block hover:text-primary">
                   Contact
                 </Link>
               </li>
