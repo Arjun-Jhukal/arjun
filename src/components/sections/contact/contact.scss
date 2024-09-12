@@ -74,6 +74,7 @@
       }
     }
 
+
     .front-face {
       z-index: 2;
       transform: rotateY(0deg); // Default position
@@ -83,11 +84,11 @@
       transform: rotateY(180deg); // Start flipped
     }
 
-    &:hover .front-face {
+    &:hover .front-face,&.active .front-face {
       transform: rotateY(-180deg); // Flip the front face on hover
     }
 
-    &:hover .back-face {
+    &:hover .back-face,&.active .back-face {
       transform: rotateY(0deg); // Bring the back face to front on hover
     }
 
