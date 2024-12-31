@@ -35,7 +35,7 @@ export default function Contact() {
   return (
     <section className="contact py-[140px]" id="contact">
       <div className="container">
-        <div className="section-title text-center mb-[60px] max-w-[1240px]">
+        <div className="section-title text-center mb-[60px] max-w-[600px] mx-auto">
           <h2>Let's Connect</h2>
           <p>
             Whether you're looking to collaborate on a project, seek advice, or just want to connect, feel free to reach out!

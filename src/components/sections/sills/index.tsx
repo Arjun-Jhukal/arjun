@@ -11,57 +11,75 @@ import "./skill.scss";
 import HtmlIcon from "@/Icons/Html";
 
 export default function Skills() {
-  const skillsData = [
-    {
-      tooltipMessage: "HTML",
-      icon: <HtmlIcon />,
-    },
-    {
-      tooltipMessage: "SCSS",
-      icon: <SassIcon />,
-    },
-    {
-      tooltipMessage: "Javascript",
-      icon: <JavascriptIcon />,
-    },
-    {
-      tooltipMessage: "Bootstrap",
-      icon: <BootstrapIcon />,
-    },
-    {
-      tooltipMessage: "GitHub",
-      icon: <GitIcon />,
-    },
-    {
-      tooltipMessage: "Next Js",
-      icon: <NextIcon />,
-    },
-    {
-      tooltipMessage: "React Js",
-      icon: <ReactIcon />,
-    },
-  ];
-  return (
-    <section className="skills section__gap bg-black-100" id="skills">
-      <div className="container">
-        <div className="section__title ">
-          <h2 className="uppercase pb-[60px] text-white">Toolkit</h2>
-        </div>
-        <div className="skills__list flex justify-start items-center flex-wrap">
-          {skillsData.map((skill, index) => (
-            <div className="skills__list-item" key={skill.tooltipMessage + index.toString()}>
-              <Tooltip message={skill.tooltipMessage}>{skill.icon}</Tooltip>
-            </div>
-          ))}
-          <div className="skills__list-item">
-            <Tooltip message="Coming Soon">
-              <p className="empty">
-                <span>Uploading</span>
-              </p>
-            </Tooltip>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+	const skillsData = [
+		{
+			tooltipMessage: "HTML",
+			icon: <HtmlIcon />,
+		},
+		{
+			tooltipMessage: "CSS",
+			icon: <HtmlIcon />,
+		},
+		{
+			tooltipMessage: "SCSS",
+			icon: <SassIcon />,
+		},
+		{
+			tooltipMessage: "Javascript",
+			icon: <JavascriptIcon />,
+		},
+		{
+			tooltipMessage: "Typescript",
+			icon: <JavascriptIcon />,
+		},
+		{
+			tooltipMessage: "Bootstrap",
+			icon: <BootstrapIcon />,
+		},
+		{
+			tooltipMessage: "Tailwind",
+			icon: <BootstrapIcon />,
+		},
+		{
+			tooltipMessage: "GitHub",
+			icon: <GitIcon />,
+		},
+		{
+			tooltipMessage: "Next Js",
+			icon: <NextIcon />,
+		},
+		{
+			tooltipMessage: "React Js",
+			icon: <ReactIcon />,
+		},
+		{
+			tooltipMessage: "Wordpress",
+			icon: <ReactIcon />,
+		},
+	];
+	return (
+		<section className="skills section__gap bg-black-100" id="skills">
+			<div className="container">
+				<div className="section__title ">
+					<h2 className="uppercase pb-[60px] text-white">Toolkit</h2>
+				</div>
+				<div className="skills__list flex justify-start items-center flex-wrap">
+					{skillsData.map((skill, index) => (
+						<div
+							className="skills__list-item"
+							key={skill.tooltipMessage + index.toString()}>
+							<Tooltip message={skill.tooltipMessage}>{skill.icon}</Tooltip>
+						</div>
+					))}
+					<div className="skills__list-item">
+						<Tooltip message="Coming Soon">
+							<p className="empty">
+								<span>Uploading</span>
+							</p>
+						</Tooltip>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 }
