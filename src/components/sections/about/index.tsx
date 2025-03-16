@@ -21,7 +21,7 @@ export default function About() {
 				<p className="block">🚀 Let’s build something amazing together!</p>
 				<Link
 					href={
-						"https://drive.google.com/file/d/1Vrw4jljK1t_pkAXytdsbYiF9eqORMc-W/view?usp=sharing"
+						"/cv"
 					}
 					target="_blank"
 					className="btn btn__outline mt-6">

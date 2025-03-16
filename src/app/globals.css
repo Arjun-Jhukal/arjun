@@ -117,3 +117,29 @@ section:not(.recent_work),header{
 		fill: #fff;
 	}
 }
+
+
+@media print{
+	header{
+		display: none;
+	}
+	h1{
+		@apply text-[24px];
+
+	}
+	h3{
+		@apply text-[18px];
+	}
+	h4{
+		@apply text-[16px];
+	}
+	p,li{
+		@apply text-[14px] leading-[1];
+	}
+	strong{
+		@apply font-[500];
+	}
+	a{
+		@apply text-primary;
+	}
+}

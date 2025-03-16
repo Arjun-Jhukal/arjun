@@ -34,8 +34,8 @@ export default function NewBanner() {
 						<p className="mb-[24px]">
 							I am a pasionat Frontend Developer eager to learn and grow in Javascript Framework. I have been working in the field of web development for more than 3 years. I have worked with various clients and companies to create beautiful and functional websites.
 						</p>
-						<Link href={"#projects"} className=" btn btn__outline mb-[40px]">
-							Explore My Work
+						<Link href={"/cv"} className=" btn btn__outline mb-[40px]">
+							Download CV
 						</Link>
 
 						<div className="flex justify-start items-center gap-6">

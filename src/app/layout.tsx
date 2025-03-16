@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Arjun Jhukal | Frontend Developer",
     description: "I am a Frontend Developer experties in React Next Js and Wordpress...",
-    images: "/logo-no-background.png",
+    images: "/profile.png",
   },
   twitter: {
     title: "Arjun Jhukal | Frontend Developer",
     description: "I am a Frontend Developer experties in React Next Js and Wordpress...",
     card: "summary_large_image",
-    images: "/logo-no-background.png",
+    images: "/profile.png",
   },
 };
 
