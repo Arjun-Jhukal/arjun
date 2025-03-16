@@ -35,16 +35,17 @@ export default function Contact() {
   return (
     <section className="contact py-[140px]" id="contact">
       <div className="container">
-        <div className="section-title text-center mb-[60px] max-w-[600px] mx-auto">
+        {/* <div className="section-title text-center mb-[60px] max-w-[600px] mx-auto">
           <h2>Let's Connect</h2>
           <p>
             Whether you're looking to collaborate on a project, seek advice, or just want to connect, feel free to reach out!
           </p>
-        </div>
+        </div> */}
         <div className="contact-card" ref={contactRef}>
           <div className="front-face">
             <div className="ff-content">
-              <h3>Arjun Jhukal</h3>
+              {/* <h2 className="font-[600] text-primary">{`</a>`}</h2> */}
+              <h3 color="text-primary">Arjun Jhukal</h3>
               <p>Frontend Developer</p>
             </div>
           </div>

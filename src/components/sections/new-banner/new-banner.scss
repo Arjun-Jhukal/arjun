@@ -1,8 +1,22 @@
 .new__banner {
   h1 {
     font-size: calc(1rem + 3.5vw);
-    font-weight: 400;
+    // font-weight: 400;
     line-height: normal;
     color: #1d1d1d;
+  }
+
+  .over-title{
+    position: relative;
+    z-index: 1;
+    &::before{
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      @apply bg-primary;
+    }
   }
 }

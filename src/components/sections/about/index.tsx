@@ -6,50 +6,27 @@ export default function About() {
 	return (
 		<section className="about section__gap" id="about">
 			<div className="container">
-				<div className="lg:grid lg:grid-cols-8 lg:gap-12 items-center">
-					<div className="col-span-4 text-center lg:order-1 mb-8 mb-lg-0">
-						<Image
-							src="/banner-03.png"
-							alt=""
-							className="max-w-full h-auto rounded-lg "
-							width={828}
-							height={552}
-						/>
-					</div>
-					<div className="col-span-4 mb-8 lg:order-2 ">
-						<div className="section__title ">
-							<h2 className="uppercase pb-[40px]">About Myself</h2>
-						</div>
-						<div className="about__brief">
-							<p className="mb-4">
-								Hello again! Thanks for scrolling this far!!.
-							</p>
-							<p className="mb-4">Hope you have through some of my project</p>
-							<p className="mb-8">
-								I&apos;m a Computer Science and Information Technology graduate
-								from Tribhuwan University, Kathmandu, Nepal. With over 2 years
-								of industry experience, I&apos;m driven to innovate and deliver
-								exceptional solutions. Feel free to view
-								<Link href={"#"} className="text-primary">
-									my projects
-								</Link>{" "}
-								and delve into{" "}
-								<Link href={"#"} className="text-primary">
-									my experience
-								</Link>
-								.
-							</p>
-							<Link
-								href={
-									"https://drive.google.com/file/d/1Vrw4jljK1t_pkAXytdsbYiF9eqORMc-W/view?usp=sharing"
-								}
-								target="_blank"
-								className="btn btn__outline">
-								Download CV
-							</Link>
-						</div>
-					</div>
+				<div className="section__title ">
+					<h2 className="">About Myself</h2>
 				</div>
+				<p className="mb-4">
+					Hello again! Thanks for scrolling this far!!.
+				</p>
+				<div className="about__brief md:columns-2">
+					<p className="mb-8">
+						Here’s a little bit about me—I’m a <strong>Web Developer</strong> with <strong>React.js</strong>, <strong>Next.js</strong>, and <strong>WordPress</strong> as my main tech stack. I have worked on a variety of projects, from <strong>e-commerce websites to SaaS platforms and web applications.</strong> I’m always eager for new challenges and opportunities to learn and grow.
+					</p>
+					<p className="mb-8">I have been part of multiple teams and have worked with various tech stacks. I feel confident working with WordPress, React, and Next.js and have hands-on experience in building and optimizing web applications. Currently, I am looking for a stable career focused on React and Next.js, where I can continue to grow and contribute to impactful projects.</p>
+				</div>
+				<p className="block">🚀 Let’s build something amazing together!</p>
+				<Link
+					href={
+						"https://drive.google.com/file/d/1Vrw4jljK1t_pkAXytdsbYiF9eqORMc-W/view?usp=sharing"
+					}
+					target="_blank"
+					className="btn btn__outline mt-6">
+					Download CV
+				</Link>
 			</div>
 		</section>
 	);

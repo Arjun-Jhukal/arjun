@@ -98,7 +98,7 @@
 }
 
 @media (min-width: 992px) {
-  main {
+  section:first-child {
     position: relative;
 
     &::before {

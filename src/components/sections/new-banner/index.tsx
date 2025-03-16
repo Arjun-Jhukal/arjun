@@ -8,26 +8,33 @@ import UpworkIcon from "@/Icons/upwork";
 
 export default function NewBanner() {
 	return (
-		<section className="new__banner section__gap ">
+		<section className="new__banner section__gap">
 			<div className="container">
 				<div className="banner__content-wrapper lg:grid grid-cols-2 items-center gap-4">
-					<div className="banner__content py-[90px]">
-						<p className="uppercase mb-[50px]">Frontend Developer</p>
-						<h1 className="mb-[40px]">
-							<span className="bg-white-100 pr-[20px]">
-								Hello I<span className="text-primary">'</span>m
+					<div className="banner__content py-[64px] lg:py-100">
+						<div className="banner__image relative aspect-square  rounded-full  lg:hidden overflow-hidden mb-8 sm:max-w-[40vw] mx-auto">
+							<Image
+								src={"/profile.jpg"}
+								alt="Frontend Developer Nepal Arjun Jhukal's Profile Picture"
+								fill
+								objectFit="cover"
+								priority
+							/>
+						</div>
+						<p className="uppercase mb-[16px]  over-title inline-block">Frontend Developer</p>
+						<h1 className="mb-[40px] ">
+							<span className=" pr-[20px]">
+								Hi 👋, I<span className="text-primary">'</span>m
 							</span>
 							<br />
-							<span className="bg-white-100">
+							<span >
 								<span className="text-primary">Arjun</span> Jhukal
 							</span>
 						</h1>
-						<p className="mb-[60px]">
-							I believe that collaboration and creativity are the cornerstones
-							of progress, and I am dedicated to bringing a fresh perspective to
-							every project I undertake.
+						<p className="mb-[24px]">
+							I am a pasionat Frontend Developer eager to learn and grow in Javascript Framework. I have been working in the field of web development for more than 3 years. I have worked with various clients and companies to create beautiful and functional websites.
 						</p>
-						<Link href={"#projects"} className=" btn btn__outline mb-[60px]">
+						<Link href={"#projects"} className=" btn btn__outline mb-[40px]">
 							Explore My Work
 						</Link>
 
@@ -54,7 +61,7 @@ export default function NewBanner() {
 							</Link>
 						</div>
 					</div>
-					<div className="banner__image relative aspect-square  rounded-bl-[150px] overflow-hidden">
+					<div className="banner__image relative aspect-square  rounded-bl-[150px] hidden lg:block overflow-hidden">
 						<Image
 							src={"/profile.jpg"}
 							alt="Frontend Developer Nepal Arjun Jhukal's Profile Picture"

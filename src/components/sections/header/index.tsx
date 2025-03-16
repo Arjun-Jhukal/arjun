@@ -31,7 +31,7 @@ export default function Header() {
     <header className="header">
       <div className="container">
         <div className="flex justify-end items-center py-4 md:py-0">
-          <Link href={"/"} className="fixed top-0 left-0 bg-primary px-2 py-4 z-[9]">
+          <Link href={"/"} className="fixed top-0 left-0 bg-primary px-4 py-3 z-[9]">
             {/* <Image src={"/logo-no-background.png"} priority alt="Arjun Jhukal - Logo" width={50} height={50} /> */}
             <h1 className="text-white">A.</h1>
           </Link>

@@ -15,16 +15,16 @@ export const metadata: Metadata = {
     template: "%s - Arjun Jhukal | Frontend Developer",
   },
 
-  description: "Hi I'm Arjun Jhukal, a software developer creating seamless and optimized web applications since 2020",
+  description: "I am a Frontend Developer experties in React Next Js and Wordpress...",
 
   openGraph: {
     title: "Arjun Jhukal | Frontend Developer",
-    description: "Hi I'm Arjun Jhukal, a software developer creating seamless and optimized web applications since 2020",
+    description: "I am a Frontend Developer experties in React Next Js and Wordpress...",
     images: "/logo-no-background.png",
   },
   twitter: {
     title: "Arjun Jhukal | Frontend Developer",
-    description: "Hi I'm Arjun Jhukal, a software developer creating seamless and optimized web applications since 2020",
+    description: "I am a Frontend Developer experties in React Next Js and Wordpress...",
     card: "summary_large_image",
     images: "/logo-no-background.png",
   },
