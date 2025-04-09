@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cvData } from "../../../../cv";
 
 type Experience = {
@@ -26,6 +26,12 @@ type CVData = {
     education: Education;
 };
 
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+});
 
 
 const CVPage = () => {
@@ -41,7 +47,7 @@ const CVPage = () => {
 
 
     return (
-        <section className="cv-container">
+        <section className={`cv-container ${inter.className}`}>
             <div className="container">
                 <div className="title text-center mb-4">
                     <h1 className="mb-2">{cvData.name}</h1>
@@ -77,17 +83,23 @@ const CVPage = () => {
                 </ul>
                 <hr />
                 <h3 className="mt-4 mb-2">Education</h3>
-                <p className="mb-4">{cvData.education.degree} - {cvData.education.university} ({cvData.education.year})</p>
+                {
+                    cvData.education.length > 0 ? cvData.education.map((item) => (
+                        <p className="mb-4" key={item.year}>{item.degree} - {item.university} ({item.year})</p>
+                    )) : null
+                }
+
                 <hr />
                 <h3 className="mt-4 mb-2">Projects</h3>
                 <div className="project-list">
                     {cvData.projects.map((project) => (
                         <div className="project mb-6" key={project.name}>
-                            <h4 className="mb-2 mt-4">{project.name}</h4>
-                            <p className="mb-2">{project.company}|{project.domain}</p>
+                            <h4 className="mb-2 mt-4 text-[20px]">{project.name}</h4>
+                            <p className="mb-2">{project.company} | {project.domain}</p>
                             <p className="mb-4">{project.tech}</p>
+                            {/* <p>{project?.brief}</p> */}
                             {project.brief ? <p className="mb-4">{project.brief}</p> : ""}
-                            <a href="https://arjunjhukal.com.np">Visit Site</a>
+                            {project.link ? <a href={project.link}>Visit Site</a> : null}
                         </div>
                     ))}
                 </div>

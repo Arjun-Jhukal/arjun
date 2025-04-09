@@ -134,7 +134,7 @@ section:not(.recent_work),header{
 		@apply text-[16px];
 	}
 	p,li{
-		@apply text-[14px] leading-[1];
+		@apply text-[14px] leading-[1] font-[300];
 	}
 	strong{
 		@apply font-[500];

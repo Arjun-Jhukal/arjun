@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const cvData = {
   name: "Arjun Jhukal",
   email: "jhukal9@gmail.com",
@@ -27,16 +29,28 @@ export const cvData = {
     }
   ],
   skills: ["React.js", "Next.js", "Redux Toolkit", "Wordpress", "Github | Gitlab | Bitbucket", "Bootstrap | Tailwind | CSS", "Material UI", "HTML5", "Javascript | jQuery"],
-  education: {
-    "degree": "Bachelor's in Computer Science",
-    "university": "Madan Bhandari Memorial College",
-    "year": "2023"
-  },
+  education: [
+    {
+      "degree": "Bachelor's in Computer Science",
+      "university": "Madan Bhandari Memorial College",
+      "year": "2023"
+    },
+    {
+      "degree": "Nepal Education Board",
+      "university": "NAST, Dhangadi, Kailali",
+      "year": "2018"
+    },
+    {
+      "degree": "SLC",
+      "university": "Gyanoday Vidya Niketan, Dadeldhura, Nepal",
+      "year": "2016"
+    }
+  ],
   projects: [
     {
       name: "HRIS [Human Resource Information System]",
       company: "Progressive Labs",
-      brief: "",
+      brief: "Human Resouce Information System where we can manage employee data, leave, salary, and other HR related activities.",
       domain: "Human Resource Management",
       tech: "React | Redux Toolkit | MUI | RestaAPI "
 
@@ -44,135 +58,95 @@ export const cvData = {
     {
       name: "MDM [Mobile Device Management System]",
       company: "Progressive Labs",
-      brief: "",
+      brief: "MDM was designed and build to track a daily work of employee with execlusive features like tracking employee daily application activities.",
       domain: "Employee Management",
       tech: "Next JS | Rest API | RTK QUERY "
     },
     {
-      name: "GSA [Gold Shop Application]",
+      name: "Mobile Application",
       company: "Progressive Labs",
       domain: "Information System",
-      tech: "",
-      brief: "FLutter | Firebase",
+      tech: "FLutter | Firebase",
+      brief: "Basic mobile build to display the price of Gold with simple dashboard and basic UI.",
     },
     {
-      name: "Gabbinbar",
+      name: "Weeding Planner Portfolio",
       company: "Codepros",
-      brief: "",
+      brief: "A portfolio site featuring team members, projects, and services with a lot of animation.",
       domain: "Event Planner",
       tech: "Next JS | Dato CMS | GraphQL",
     },
     {
-      name: "Daily R",
+      name: "News Portal | Bloging Site",
       company: "Codepros",
-      brief: "",
+      brief: "News Portal for displaying the latest news with a lot of features like search, filter, and category.",
       domain: "Bloging | News",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "civil Sathi",
+      name: "Company Portfolio",
       company: "Codepros",
-      brief: "",
+      brief: "Construction Company Portfolio with search and filter store based on location and keyword",
       domain: "Construction",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "Longevity Avea",
-      company: "Codepros",
-      brief: "",
-      domain: "News | Blogs",
-      tech: "HTML | CSS | Wordpress",
-    },
-    {
-      name: "Bold Himalaya",
+      name: "Travel Website",
       company: "Makura Creations",
-      brief: "",
+      brief: "A travel website with a lot of pages including home, about, contact, destination, region, activity, package and more.",
       domain: "Travel & Exploration",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "NIIF",
+      name: "Capital Venuter Portfolio",
       company: "Makura Creations",
-      brief: "",
+      brief: "Developed a fullstack portfolio website for Capital Venuter with numerious page including home, about, contact, services, portfolio ,carrer and more.",
       domain: "Company Portfolio",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "TPFL",
+      name: "Chartiy Website",
       company: "Makura Creations",
       brief: "",
-      domain: "Company Portfolio",
+      domain: "Non Profit Organization",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "UWS Nepal",
+      name: "E-commerce",
       company: "Makura Creations",
-      brief: "",
-      domain: "Charity",
-      tech: "HTML | CSS | Wordpress",
-    },
-    {
-      name: "Uncover Nepal",
-      company: "Makura Creations",
-      brief: "",
-      domain: "Travel & Exploration",
-      tech: "HTML | CSS | Laravel | Vue",
-    },
-    {
-      name: "Varicon",
-      company: "Makura Creations",
-      brief: "",
-      domain: "Construction",
-      tech: "HTML | CSS | Wordpress",
-    },
-    {
-      name: "Promoshop",
-      company: "Makura Creations",
-      brief: "",
+      brief: "Developed a frontend with Products, Category and Cart ",
       domain: "E-commerce",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "360 Education",
+      name: "Educational Consultancy",
       company: "Makura Creations",
       brief: "",
       domain: "Consultancy Educational Instuite",
       tech: "HTML | CSS | Wordpress",
     },
     {
-      name: "Flights Nepal",
-      company: "Makura Creations",
-      brief: "",
-      domain: "Consultancy Educational Instuite",
-      tech: "HTML | CSS | Wordpress | Next JS",
-    },
-    {
-      name: "Hamro Loksewa",
+      name: "Loksewa Portal",
       company: "Freelance",
-      brief: "",
+      brief: "A complete solution for Loksewa exam prepration including e-books, notes, video class etc with user registration, login system and Role based Filter.",
       domain: "Education Information System",
-      tech: "Next JS | REST API",
+      tech: "Next JS | REST API | RTK Query",
     },
     {
       name: "Story Circle",
       company: "Personal",
-      brief: "",
+      brief: "Personal Bloging site.",
       domain: "Bloging & News",
       tech: "Next Js | Dato CMS",
+      link: "https://blog.arjunjhukal.com.np"
     },
     {
       name: "Online Store",
       company: "Personal",
-      brief: "",
+      brief: "Simple E-commerce site with products and cart implementing free store api.",
       domain: "E-Commerce",
       tech: "Next JS Static",
-    },
-    {
-      name: "Daraz",
-      company: "Personal",
-      brief: "",
-      domain: "E-Commerce",
-      tech: "React | Node | Express | Mongodb",
+      link: "https://thunderous-cannoli-528ca4.netlify.app/"
     },
   ]
 }
