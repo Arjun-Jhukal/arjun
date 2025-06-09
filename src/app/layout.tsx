@@ -33,6 +33,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactElement }) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8678344611307925"
+          crossOrigin="anonymous"></script>
+      </head>
       <body className={kanit.className}>{children} </body>
     </html>
   );
