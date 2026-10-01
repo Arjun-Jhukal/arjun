@@ -93,7 +93,7 @@ export default function Services() {
 
             <div className="split__foot" data-reveal>
               <a className="btn" href="#process" data-magnetic>
-                <span className="btn__label">Start your project</span>
+                <span className="btn__label">Request a quote</span>
                 <svg className="btn__arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                   <path d="M1 9 9 1M9 1H3M9 1v6" stroke="currentColor" strokeWidth="1.2" />
                 </svg>

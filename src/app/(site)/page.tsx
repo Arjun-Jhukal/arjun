@@ -5,6 +5,7 @@ import {
   figures,
   process,
   included,
+  faqs,
   roles,
   education,
 } from "@/content/site";
@@ -15,7 +16,8 @@ import Marquee from "@/components/v4/Marquee";
 import Plates from "@/components/v4/Plates";
 import Reel from "@/components/v4/Reel";
 import Services from "@/components/v4/Services";
-import Devanagari from "@/components/v4/Devanagari";
+import Signature from "@/components/v4/Signature";
+import StructuredData from "@/components/v4/StructuredData";
 import Archive from "@/components/v4/Archive";
 import StackDeck from "@/components/v4/StackDeck";
 import ContactForm from "@/components/v4/ContactForm";
@@ -23,6 +25,8 @@ import ContactForm from "@/components/v4/ContactForm";
 export default function Page() {
   return (
     <>
+      <StructuredData />
+
       <a className="skip" href="#top">
         Skip to content
       </a>
@@ -30,37 +34,25 @@ export default function Page() {
       <Chrome />
 
       <main>
-        {/*
-          The dock holds the masthead and the reel together. The masthead is
-          sticky inside it, so the reel rides up over a hero that stays put —
-          and the masthead releases the moment the dock ends, instead of
-          hanging around behind every section below.
-        */}
-        <div className="dock">
         {/* ------------------------------------------------------- masthead */}
         <section id="top" className="masthead">
-          <Devanagari
-            variant="masthead"
-            className="masthead__deva"
-            trigger="#top"
-          />
-
           <div className="sheet" data-hero-fade>
             <div className="masthead__kicker">
               <span className="status">{person.available}</span>
-              <span className="meta">
-                {person.role} · {person.stack}
-              </span>
+              <span className="meta">{person.stack}</span>
               <span className="meta">{person.coords}</span>
               <Clock />
             </div>
 
             <div className="masthead__grid">
               <div>
-                <h1 className="display masthead__title" data-split>
-                  Arjun
-                  <br />
-                  <em>Jhukal</em>
+                <h1 className="masthead__h1">
+                  <span className="display masthead__title" data-split>
+                    Arjun
+                    <br />
+                    <em>Jhukal</em>
+                  </span>
+                  <span className="masthead__role">{person.role}</span>
                 </h1>
 
                 <p className="lede" data-reveal>
@@ -125,7 +117,6 @@ export default function Page() {
 
         {/* --------------------------------------------------------- showreel */}
         <Reel />
-        </div>
 
         <Marquee />
 
@@ -208,6 +199,27 @@ export default function Page() {
                   </li>
                 ))}
               </ol>
+            </div>
+
+            <div className="faq">
+              <div className="faq__head">
+                <p className="meta meta--spot">Before you ask</p>
+                <h3 className="faq__title" data-reveal>
+                  Questions I get asked before every project
+                </h3>
+              </div>
+
+              <dl className="faq__list">
+                {faqs.map((item, i) => (
+                  <div className="faq__item" key={item.q}>
+                    <dt className="faq__q">
+                      <span className="faq__no">{String(i + 1).padStart(2, "0")}</span>
+                      {item.q}
+                    </dt>
+                    <dd className="faq__a">{item.a}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
@@ -345,7 +357,7 @@ export default function Page() {
 
         {/* -------------------------------------------------------- contact */}
         <section id="contact" className="band contact" data-tone="ink">
-          <Devanagari variant="contact" className="contact__deva" trigger="#contact" />
+          <Signature className="contact__sign" trigger="#contact" />
 
           <div className="sheet">
             <div className="runner">

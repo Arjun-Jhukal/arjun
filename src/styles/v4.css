@@ -436,18 +436,25 @@ button {
   display: grid;
   align-content: center;
   justify-items: center;
-  overflow-y: auto;
-  padding-block: calc(var(--header-h) + 2rem) 2rem;
+  padding: calc(var(--header-h) + 1rem) var(--gutter) 1.5rem;
   will-change: clip-path;
 }
 
-/* one centred column, capped — the sheet is a short list, not a sitemap */
+/*
+ * One centred column, capped on BOTH axes. Eleven chapters plus the contact
+ * block overran a laptop viewport, which clipped the first row off the top of
+ * the screen — capping the width alone does not stop that.
+ */
 .menu__inner {
   display: grid;
-  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+  align-content: center;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
   width: 100%;
   max-width: 600px;
+  max-height: calc(100svh - var(--header-h) - 3rem);
   margin-inline: auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .menu__list {
@@ -458,7 +465,7 @@ button {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  padding-block: 0.45rem;
+  padding-block: 0.35rem;
   border-bottom: 1px solid var(--rule-soft);
   transition: color 0.3s var(--ease), padding-left 0.4s var(--ease);
 }
@@ -479,7 +486,7 @@ button {
   font-family: var(--display);
   font-weight: 800;
   /* eleven chapters have to fit one screen at 600px wide */
-  font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem);
+  font-size: clamp(1.25rem, 0.9rem + 1vw, 1.75rem);
   line-height: 1;
   letter-spacing: -0.035em;
 }
@@ -601,34 +608,6 @@ button {
   color: var(--spot);
 }
 
-/* ------------------------------------------------------------------ dock */
-
-/*
- * The masthead sticks inside the dock while the reel scrolls up over it. The
- * dock is the masthead plus the reel, so the hero releases as soon as the reel
- * has passed — a hero stuck to the document would sit behind every band below
- * and show through the ones that have no background of their own.
- *
- * Guarded on height as well as width: a sticky element taller than the viewport
- * pins its top and makes its own bottom unreachable.
- */
-.dock {
-  position: relative;
-}
-
-@media (min-width: 1000px) and (min-height: 760px) {
-  .dock > .masthead {
-    position: sticky;
-    top: 0;
-    z-index: 0;
-  }
-
-  .dock > .reel {
-    position: relative;
-    z-index: 1;
-  }
-}
-
 /* -------------------------------------------------------------- masthead */
 
 .masthead {
@@ -641,20 +620,6 @@ button {
   padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
   overflow: hidden;
   isolation: isolate;
-}
-
-/* traced outlines that draw themselves — see Devanagari.tsx */
-.masthead__deva {
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  translate: -50% -50%;
-  width: min(92vw, 1500px);
-  height: auto;
-  color: var(--fg);
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: -1;
 }
 
 .masthead__grid {
@@ -679,9 +644,25 @@ button {
   border-bottom: 1px solid var(--rule);
 }
 
-.masthead__title {
-  font-size: clamp(3.1rem, 12.2vw, 11rem);
+.masthead__h1 {
+  display: block;
   margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.masthead__title {
+  display: block;
+  font-size: clamp(3.1rem, 12.2vw, 11rem);
+}
+
+.masthead__role {
+  display: block;
+  margin-top: clamp(0.75rem, 1.6vw, 1.1rem);
+  font-family: var(--mono);
+  font-size: clamp(0.6875rem, 0.6rem + 0.3vw, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
 }
 
 /* Bricolage has no italic, so the second name is marked by colour alone */
@@ -1875,6 +1856,76 @@ button {
   max-width: 54ch;
 }
 
+/* -------------------------------------------------------------------- faq */
+
+.faq {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 1000px) {
+  .faq {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+  }
+
+  .faq__head {
+    position: sticky;
+    top: calc(var(--header-h) + 3rem);
+  }
+}
+
+.faq__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 1.25rem + 1.9vw, 2.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin-top: 1rem;
+  max-width: 18ch;
+}
+
+.faq__list {
+  display: grid;
+  border-top: 1px solid var(--rule-soft);
+}
+
+.faq__item {
+  padding-block: clamp(1.1rem, 2.2vw, 1.6rem);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.faq__q {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.6rem;
+}
+
+.faq__no {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  color: var(--spot);
+  padding-top: 0.4em;
+  flex: none;
+}
+
+.faq__a {
+  margin-left: calc(1rem + 2.1em);
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  max-width: 62ch;
+}
+
 /* ---------------------------------------------------------------- about */
 
 .about__grid {
@@ -2099,14 +2150,15 @@ button {
   overflow: hidden;
 }
 
-.contact__deva {
+/* the signature draws itself across the band — see Signature.tsx */
+.contact__sign {
   position: absolute;
-  right: -4vw;
-  bottom: -4vh;
-  width: min(62vw, 820px);
+  right: clamp(1rem, 4vw, 5rem);
+  bottom: clamp(1.5rem, 5vh, 4rem);
+  width: min(54vw, 620px);
   height: auto;
   color: var(--fg);
-  opacity: 0.26;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -2443,7 +2495,9 @@ body.v4.is-locked .chrome::before {
   opacity: 0;
 }
 
-body.v4.is-locked .chrome__nav {
+body.v4.is-locked .chrome__nav,
+/* the wordmark has no job next to a Close button on an empty sheet */
+body.v4.is-locked .chrome__mark {
   display: none;
 }
 
@@ -2529,14 +2583,10 @@ body.v4.is-locked .chrome__nav {
 /* On a phone the masthead watermark lands behind the standfirst; drop it back
    so it is texture rather than interference. */
 @media (max-width: 760px) {
-  .masthead__deva {
-    opacity: 0.14;
-    top: 60%;
-  }
 
-  .contact__deva {
-    opacity: 0.16;
-    width: 92vw;
-    right: -8vw;
+  .contact__sign {
+    opacity: 0.22;
+    width: 78vw;
+    right: 1rem;
   }
 }

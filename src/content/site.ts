@@ -18,7 +18,7 @@ export const person = {
   name: "Arjun Jhukal",
   devanagari: "अर्जुन झुकाल",
   initials: "AJ",
-  role: "Web developer",
+  role: "Web developer in Nepal",
   stack: "Next.js · React · WordPress",
   city: "Kathmandu, Nepal",
   coords: "27.7172° N · 85.3240° E",
@@ -30,7 +30,7 @@ export const person = {
   issue: "Issue 04",
   year: "2026",
   standfirst:
-    "I build complete websites — the pages, the dashboard your team edits them from, and the server in between. On a Next.js CMS I already run e-commerce, travel and publishing on, so your project does not start from an empty folder.",
+    "I am a web developer in Kathmandu who builds complete websites — the pages, the dashboard your team edits them from, and the server in between. They run on a Next.js CMS that already powers e-commerce, travel and publishing sites in Nepal, so your project does not start from an empty folder.",
   elsewhere: [
     { label: "GitHub", href: "https://github.com/Arjun-Jhukal" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/arjun-jhukal/" },
@@ -118,7 +118,7 @@ export const plates: Plate[] = [
     ],
     image: {
       src: "/work/cms.webp",
-      alt: "Three live storefronts — a cricket site, a trekking site and a beauty store — all served by the same CMS",
+      alt: "Three live Nepali websites — a cricket publication, a trekking catalogue and a beauty store — all served by the same CMS backend",
     },
   },
   {
@@ -136,7 +136,7 @@ export const plates: Plate[] = [
     link: { label: "chhaka-prod.vercel.app", href: "https://chhaka-prod.vercel.app", live: true },
     image: {
       src: "/work/chhaka.webp",
-      alt: "Chhaka cricket site: upcoming fixtures with team crests and a featured NPL article",
+      alt: "The Chhaka cricket site shown at desktop, tablet and phone widths — the same page laid out three ways",
     },
   },
   {
@@ -154,7 +154,7 @@ export const plates: Plate[] = [
     link: { label: "yatra-prod.vercel.app", href: "https://yatra-prod.vercel.app", live: true },
     image: {
       src: "/work/travel.webp",
-      alt: "Himalaya Treks homepage: a full-bleed Annapurna photograph with trek search",
+      alt: "The Himalaya Treks homepage at desktop, tablet and phone widths — the same page laid out three ways",
     },
   },
   {
@@ -176,7 +176,7 @@ export const plates: Plate[] = [
     },
     image: {
       src: "/work/store.webp",
-      alt: "Veloura Beauty storefront: a full-width serum campaign image over a shop-by-category rail",
+      alt: "The Veloura Beauty storefront at desktop, tablet and phone widths — the same page laid out three ways",
     },
   },
   {
@@ -194,10 +194,55 @@ export const plates: Plate[] = [
     link: { label: "event-planner.vercel.app", href: "https://event-planner.vercel.app", live: true },
     image: {
       src: "/work/events.webp",
-      alt: "EventPlanner homepage: a dense masonry gallery of wedding and party styling photographs",
+      alt: "The EventPlanner homepage: a masonry gallery of wedding and party styling, composed entirely in the dashboard",
     },
   },
 ];
+
+/* --------------------------------------------------------------------- faq */
+
+/**
+ * Real answers to what people actually ask before hiring a web developer in
+ * Nepal. These are also the questions Google surfaces for those searches, so the
+ * block is marked up as FAQPage structured data in the page.
+ *
+ * Nothing here quotes a price. Every project is scoped on a call first, and a
+ * made-up number on a portfolio is a number you have to walk back.
+ */
+export const faqs = [
+  {
+    q: "How much does a website cost in Nepal?",
+    a: "It depends entirely on what the site has to do. A five-page brochure site, an online store with payments, and a publishing platform with thousands of pages are three different pieces of work. I quote after a free first call, in writing, with the features and the number in one document — so you are never agreeing to an estimate that moves later.",
+  },
+  {
+    q: "How long does a website take to build?",
+    a: "A straightforward business site is usually a few weeks; an online store or a content platform is longer. The honest answer is that the build is rarely the slow part — waiting on copy, photography and product data is. I give you a date in the scope and a preview URL from week one so you can see the pace for yourself.",
+  },
+  {
+    q: "Do you work with clients outside Kathmandu?",
+    a: "Yes. I am based in Kathmandu and work with clients across Nepal and abroad. Everything runs over calls and a shared preview link, which is how the sites on this page were built. Time zones have not been a problem so far.",
+  },
+  {
+    q: "Will I be able to update the website myself?",
+    a: "That is the point. Your site ships with a dashboard where your team composes pages from blocks — changing copy, prices, photos or a whole landing page without a developer, a branch or a deploy. I hand it over and train whoever will be using it.",
+  },
+  {
+    q: "Do you build WordPress sites too?",
+    a: "Yes. WordPress is still the right answer for a lot of businesses, and I have built news portals, company sites and travel sites on it. I will tell you honestly which of the two fits your project rather than selling you the one I would rather build.",
+  },
+  {
+    q: "Who hosts the site, and what does that cost?",
+    a: "Either Vercel, which is fast and has a free tier that covers most small business sites, or the cPanel hosting you may already pay for. I have deployed this stack both ways and will tell you which one your traffic actually needs instead of adding a monthly bill you do not.",
+  },
+  {
+    q: "Will the website work properly on mobile?",
+    a: "Every build is laid out for phone, tablet and desktop, and I check it on a real phone on a real connection before launch — not just in a browser window dragged narrow. Most traffic in Nepal is mobile, so that is the screen the design has to win on.",
+  },
+  {
+    q: "Can you fix or rebuild a website I already have?",
+    a: "Often, yes. Sometimes the right move is a rebuild and sometimes it is a repair — slow pages, a broken content model, a site nobody can edit. The first call is free and I will tell you which one you are looking at, even when the answer is that you do not need me.",
+  },
+] as const;
 
 /* ----------------------------------------------------------------- showreel */
 

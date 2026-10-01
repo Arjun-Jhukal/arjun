@@ -48,29 +48,36 @@ const deva = Mukta({
 });
 
 const SITE = "https://arjunjhukal.com.np";
-const TITLE = "Arjun Jhukal — Web Developer, Kathmandu";
+/* Kept under 60 characters: Google discards an over-long title and substitutes
+   the H1, which here is just a name and says nothing about the service. */
+const TITLE = "Web Developer in Nepal | Arjun Jhukal";
+/* ~155 characters: past that Google truncates, and the tail stops being read
+   by anyone deciding whether to click. */
 const DESCRIPTION =
-  "Web developer in Kathmandu building complete sites on Next.js, React and WordPress — pages, the CMS your team edits them from, and the API in between. Available for freelance work.";
+  "Freelance web developer in Kathmandu, Nepal. Business websites, online stores and content platforms on Next.js, React and WordPress. Free first call.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
     default: TITLE,
-    template: "%s — Arjun Jhukal",
+    template: "%s — Arjun Jhukal, Web Developer Nepal",
   },
   description: DESCRIPTION,
   applicationName: "Arjun Jhukal",
   authors: [{ name: "Arjun Jhukal", url: SITE }],
   creator: "Arjun Jhukal",
   keywords: [
-    "web developer Nepal",
+    "web developer in Nepal",
     "web developer Kathmandu",
+    "freelance web developer Nepal",
+    "website developer Nepal",
+    "hire web developer Nepal",
     "Next.js developer Nepal",
     "React developer Kathmandu",
     "WordPress developer Nepal",
-    "freelance web developer Nepal",
-    "headless CMS Nepal",
-    "e-commerce website Nepal",
+    "ecommerce website development Nepal",
+    "website design company Kathmandu",
+    "CMS website Nepal",
   ],
   alternates: { canonical: "/" },
   openGraph: {
