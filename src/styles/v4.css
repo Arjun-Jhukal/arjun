@@ -610,16 +610,55 @@ button {
 
 /* -------------------------------------------------------------- masthead */
 
+/* ---------------------------------------------------------------- opening */
+
+.opening {
+  position: relative;
+}
+
 .masthead {
   position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-top: calc(var(--header-h) + 3rem);
+  justify-content: center;
+  padding-top: calc(var(--header-h) + 2rem);
   padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  overflow: hidden;
   isolation: isolate;
+}
+
+/*
+ * The banner's own paper, as a layer rather than a background property — the
+ * zoom fades it out so the reel behind shows through, and you cannot scrub a
+ * section's background colour to transparent without also taking its contents
+ * with it.
+ */
+.masthead__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper);
+}
+
+/*
+ * Desktop only, and only when the viewport is tall enough to hold the banner:
+ * a sticky element taller than the screen pins its top and makes its own bottom
+ * unreachable.
+ */
+@media (min-width: 1000px) and (min-height: 700px) {
+  .opening > .masthead {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  /* behind the banner, so the zoom reveals it rather than being covered by it */
+  .opening > .reel {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .masthead__grid {
@@ -628,24 +667,19 @@ button {
   align-items: end;
 }
 
-/* the name is scaled on scroll, so it needs an origin and its own layer */
+/* the name zooms toward the viewer, so it grows from the middle of the screen
+   rather than off to one side */
 .masthead__h1 {
-  transform-origin: left center;
-  will-change: transform;
+  transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .masthead__lede {
-  max-width: 54ch;
+  max-width: none;
 }
 
-.masthead__kicker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.5rem;
-  align-items: center;
-  padding-bottom: 1.5rem;
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  border-bottom: 1px solid var(--rule);
+.masthead .lede {
+  max-width: 76ch;
 }
 
 .masthead__h1 {
@@ -655,7 +689,8 @@ button {
 
 .masthead__title {
   display: block;
-  font-size: clamp(3.1rem, 12.2vw, 11rem);
+  /* nothing shares the row any more, so the name takes the whole measure */
+  font-size: clamp(3rem, 18vw, 19rem);
 }
 
 .masthead__role {

@@ -194,42 +194,55 @@ export default function SiteMotion() {
         );
       });
 
-      /* ------------------------------------------- masthead: hold, then grow */
+      /* --------------------------------------------- opening: zoom through */
       /*
-       * The banner holds for most of a viewport while the name grows and
-       * everything around it clears out, then releases and the showreel comes up
-       * behind it. pinSpacing is on, so the document grows by exactly the hold —
-       * the banner never sits over the section after it.
+       * The name zooms toward the viewer while the paper behind it dissolves,
+       * so the showreel underneath is revealed THROUGH the banner rather than
+       * after it. The banner is sticky in CSS, not pinned here — a pin would
+       * fight the sticky and both would try to own the same scroll range.
        *
-       * refreshPriority is the highest on the page: this pin is the furthest up
-       * the document, so every trigger below it has to be measured after it.
+       * Everything is scrubbed against the opening wrapper, whose height is the
+       * banner plus the reel, so the whole move is over by the time the banner
+       * releases.
        */
+      const opening = document.querySelector<HTMLElement>(".opening");
       const masthead = document.querySelector<HTMLElement>("#top");
       const name = masthead?.querySelector<HTMLElement>(".masthead__h1");
+      const paper = masthead?.querySelector<HTMLElement>(".masthead__bg");
       const rest = gsap.utils.toArray<HTMLElement>(
-        "#top .masthead__kicker, #top .lede, #top .masthead__actions, #top .scroll-cue"
+        "#top .lede, #top .masthead__actions, #top .scroll-cue"
       );
 
-      if (masthead && name) {
-        gsap
-          .timeline({
-            defaults: { ease: "none" },
-            scrollTrigger: {
-              trigger: masthead,
-              start: "top top",
-              // short hold: long enough to read as a deliberate beat, short
-              // enough that the faded banner is never just an empty screen
-              end: "+=55%",
-              pin: true,
-              pinSpacing: true,
-              anticipatePin: 1,
-              scrub: 1,
-              invalidateOnRefresh: true,
-              refreshPriority: 3,
-            },
-          })
-          .to(name, { scale: 1.18, duration: 1 }, 0)
-          .to(rest, { opacity: 0, y: -26, duration: 0.7 }, 0);
+      if (opening && masthead && name && paper) {
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1000px) and (min-height: 700px)", () => {
+          gsap
+            .timeline({
+              defaults: { ease: "none" },
+              scrollTrigger: {
+                trigger: opening,
+                start: "top top",
+                end: "+=90%",
+                scrub: 1,
+                invalidateOnRefresh: true,
+              },
+            })
+            // the supporting copy clears first, so only the name is left to zoom
+            .to(rest, { opacity: 0, y: -24, duration: 0.3 }, 0)
+            .to(name, { scale: 7.5, duration: 1 }, 0)
+            .to(name, { opacity: 0, duration: 0.45 }, 0.55)
+            .to(paper, { opacity: 0, duration: 0.5 }, 0.45);
+        });
+
+        // below that, the banner is a plain section: fade it out as it leaves
+        mm.add("(max-width: 999px), (max-height: 699px)", () => {
+          gsap.to(masthead, {
+            opacity: 0.2,
+            ease: "none",
+            scrollTrigger: { trigger: masthead, start: "top top", end: "bottom top", scrub: 1 },
+          });
+        });
       }
 
       /* ----------------------------------------------------- sticky chrome */

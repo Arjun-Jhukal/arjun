@@ -30,15 +30,16 @@ export default function Page() {
       <Chrome />
 
       <main>
+        {/*
+          The opening is the banner and the showreel stacked. The banner is
+          sticky and paints over the reel; as it zooms out the paper behind it
+          dissolves, so the reel is revealed through it rather than after it.
+        */}
+        <div className="opening">
         {/* ------------------------------------------------------- masthead */}
         <section id="top" className="masthead">
+          <span className="masthead__bg" aria-hidden="true" />
           <div className="sheet">
-            <div className="masthead__kicker">
-              <span className="status">{person.available}</span>
-              <span className="meta">{person.stack}</span>
-              <Clock />
-            </div>
-
             <div className="masthead__grid">
               <div className="masthead__lede">
                 <h1 className="masthead__h1">
@@ -80,6 +81,7 @@ export default function Page() {
 
         {/* --------------------------------------------------------- showreel */}
         <Reel />
+        </div>
 
         <Marquee />
 
