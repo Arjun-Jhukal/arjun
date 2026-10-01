@@ -1,19 +1,19 @@
-import { person, faqs, services } from "@/content/site";
+import { person, services } from "@/content/site";
 
 /**
  * JSON-LD for the one page.
  *
- * Three graphs, because they answer three different questions Google asks:
+ * Two graphs, because they answer two different questions Google asks:
  *   Person              who this is, and what they are called
  *   ProfessionalService what is on offer, and where — the part that matters for
  *                       "web developer in Nepal", since areaServed is how the
  *                       country is stated in a machine-readable way
- *   FAQPage             the question block, which is what can earn the expanded
- *                       result on those searches
  *
- * Everything here mirrors copy that is actually on the page. Structured data
- * that claims something the page does not say is the fastest way to lose the
- * rich result entirely.
+ * There is no FAQPage any more: the question block was removed from the page,
+ * and structured data that claims something the page does not say is the
+ * fastest way to lose the rich result entirely.
+ *
+ * Everything here mirrors copy that is actually on the page.
  */
 
 const SITE = "https://arjunjhukal.com.np";
@@ -79,15 +79,6 @@ export default function StructuredData() {
           },
         })),
       },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${SITE}/#faq`,
-      mainEntity: faqs.map((item) => ({
-        "@type": "Question",
-        name: item.q,
-        acceptedAnswer: { "@type": "Answer", text: item.a },
-      })),
     },
   ];
 

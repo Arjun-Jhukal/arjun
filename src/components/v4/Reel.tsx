@@ -20,8 +20,7 @@ export default function Reel() {
   const section = useRef<HTMLElement>(null);
   const frame = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [manual, setManual] = useState(false);
+  const [muted, setMuted] = useState(true);
 
   /* ---------------------------------------------------- play when on screen */
   useEffect(() => {
@@ -35,10 +34,9 @@ export default function Reel() {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+          el.play().catch(() => {});
         } else if (!el.paused) {
           el.pause();
-          setPlaying(false);
         }
       },
       { threshold: 0.35 }
@@ -46,7 +44,7 @@ export default function Reel() {
 
     io.observe(host);
     return () => io.disconnect();
-  }, [manual]);
+  }, []);
 
   /* ------------------------------------------------- the frame opens outward */
   useEffect(() => {
@@ -81,16 +79,18 @@ export default function Reel() {
     return () => ctx.revert();
   }, []);
 
-  const toggle = () => {
+  /*
+   * Mute, not play/pause. The reel starts muted because that is the only way a
+   * browser will autoplay it at all; the control is there so sound can be turned
+   * on once this slot holds Arjun's own piece to camera.
+   */
+  const toggleMute = () => {
     const el = video.current;
     if (!el) return;
-    setManual((v) => !v);
-    if (el.paused) {
-      el.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-    } else {
-      el.pause();
-      setPlaying(false);
-    }
+    const next = !el.muted;
+    el.muted = next;
+    setMuted(next);
+    if (el.paused) el.play().catch(() => {});
   };
 
   return (
@@ -127,13 +127,16 @@ export default function Reel() {
             <source src={reel.src} type="video/mp4" />
           </video>
 
-          <figcaption className="reel__hud">
-            <span className="meta">{reel.caption}</span>
-            <button className="reel__btn" type="button" onClick={toggle} data-cursor="play">
-              <span className={`reel__glyph${playing ? " is-playing" : ""}`} aria-hidden="true" />
-              {playing ? "Pause" : "Play"}
-            </button>
-          </figcaption>
+          <button
+            className="reel__mute"
+            type="button"
+            onClick={toggleMute}
+            data-cursor="sound"
+            aria-pressed={!muted}
+          >
+            <span className="reel__wave" aria-hidden="true" data-on={!muted} />
+            {muted ? "Unmute" : "Mute"}
+          </button>
         </figure>
       </div>
     </section>

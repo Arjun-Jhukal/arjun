@@ -2,10 +2,6 @@ import Image from "next/image";
 
 import {
   person,
-  figures,
-  process,
-  included,
-  faqs,
   roles,
   education,
 } from "@/content/site";
@@ -36,16 +32,15 @@ export default function Page() {
       <main>
         {/* ------------------------------------------------------- masthead */}
         <section id="top" className="masthead">
-          <div className="sheet" data-hero-fade>
+          <div className="sheet">
             <div className="masthead__kicker">
               <span className="status">{person.available}</span>
               <span className="meta">{person.stack}</span>
-              <span className="meta">{person.coords}</span>
               <Clock />
             </div>
 
             <div className="masthead__grid">
-              <div>
+              <div className="masthead__lede">
                 <h1 className="masthead__h1">
                   <span className="display masthead__title" data-split>
                     Arjun
@@ -74,39 +69,7 @@ export default function Page() {
                   </a>
                 </div>
               </div>
-
-              <figure className="masthead__portrait">
-                <Image
-                  src="/profile.jpg"
-                  alt={`${person.name}, web developer, Kathmandu`}
-                  width={1200}
-                  height={1600}
-                  priority
-                  sizes="(min-width: 1000px) 340px, 0px"
-                  data-parallax="0.1"
-                />
-                <figcaption>
-                  {person.city} · {person.year}
-                </figcaption>
-              </figure>
             </div>
-
-            <dl className="figures">
-              {figures.map((figure, i) => (
-                <div className="figure" key={figure.label}>
-                  <dt className="figure__no">F_{String(i + 1).padStart(2, "0")}</dt>
-                  <dd>
-                    <span className="figure__value">
-                      <span data-count={figure.value} data-suffix="">
-                        {figure.value}
-                      </span>
-                      {figure.suffix ? <sup>{figure.suffix}</sup> : null}
-                    </span>
-                    <span className="figure__label">{figure.label}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
 
             <p className="scroll-cue meta" aria-hidden="true">
               <span className="scroll-cue__line" />
@@ -151,78 +114,6 @@ export default function Page() {
 
         {/* --------------------------------------------------- stack (pin 2) */}
         <StackDeck />
-
-        {/* -------------------------------------------------------- process */}
-        <section id="process" className="band process">
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">06</span>
-              <span className="runner__name">Request a quote</span>
-              <span className="runner__trail">Free first call</span>
-            </div>
-
-            <p className="lede" data-reveal style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
-              A free first conversation, a written scope with a number on it, then a preview
-              URL you can watch the build happen on.
-            </p>
-
-            <div className="process__grid">
-              {process.map((step) => (
-                <article className="step" data-step key={step.step}>
-                  <span className="step__dot" aria-hidden="true" />
-                  <span className="step__no">
-                    {step.step} · {step.name}
-                  </span>
-                  <h3 className="step__title">{step.title}</h3>
-                  <p className="step__body">{step.body}</p>
-                </article>
-              ))}
-            </div>
-
-            {/* the commercial argument, set as a list rather than a card grid */}
-            <div className="included">
-              <div className="included__head">
-                <p className="meta meta--spot">What a build includes</p>
-                <h3 className="included__title" data-split>
-                  You are not paying me to start from an empty folder.
-                </h3>
-              </div>
-
-              <ol className="included__list">
-                {included.map((item) => (
-                  <li className="included__item" key={item.no}>
-                    <span className="included__no">{item.no}</span>
-                    <div>
-                      <h4 className="included__name">{item.title}</h4>
-                      <p className="included__body">{item.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="faq">
-              <div className="faq__head">
-                <p className="meta meta--spot">Before you ask</p>
-                <h3 className="faq__title" data-reveal>
-                  Questions I get asked before every project
-                </h3>
-              </div>
-
-              <dl className="faq__list">
-                {faqs.map((item, i) => (
-                  <div className="faq__item" key={item.q}>
-                    <dt className="faq__q">
-                      <span className="faq__no">{String(i + 1).padStart(2, "0")}</span>
-                      {item.q}
-                    </dt>
-                    <dd className="faq__a">{item.a}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </section>
 
         {/* ---------------------------------------------------------- about */}
         <section id="about" className="band">

@@ -194,18 +194,42 @@ export default function SiteMotion() {
         );
       });
 
-      /* --------------------------------------------- masthead exit + fade */
-      const mastheadInner = document.querySelector<HTMLElement>("[data-hero-fade]");
-      // the masthead is sticky inside the dock, so its own rect stops moving —
-      // the fade has to be measured against a viewport of scroll instead
-      const fadeTrigger = document.querySelector<HTMLElement>(".dock") ?? document.querySelector<HTMLElement>("#top");
-      if (fadeTrigger && mastheadInner) {
-        gsap.to(mastheadInner, {
-          yPercent: -14,
-          opacity: 0.08,
-          ease: "none",
-          scrollTrigger: { trigger: fadeTrigger, start: "top top", end: "+=90%", scrub: 1 },
-        });
+      /* ------------------------------------------- masthead: hold, then grow */
+      /*
+       * The banner holds for most of a viewport while the name grows and
+       * everything around it clears out, then releases and the showreel comes up
+       * behind it. pinSpacing is on, so the document grows by exactly the hold —
+       * the banner never sits over the section after it.
+       *
+       * refreshPriority is the highest on the page: this pin is the furthest up
+       * the document, so every trigger below it has to be measured after it.
+       */
+      const masthead = document.querySelector<HTMLElement>("#top");
+      const name = masthead?.querySelector<HTMLElement>(".masthead__h1");
+      const rest = gsap.utils.toArray<HTMLElement>(
+        "#top .masthead__kicker, #top .lede, #top .masthead__actions, #top .scroll-cue"
+      );
+
+      if (masthead && name) {
+        gsap
+          .timeline({
+            defaults: { ease: "none" },
+            scrollTrigger: {
+              trigger: masthead,
+              start: "top top",
+              // short hold: long enough to read as a deliberate beat, short
+              // enough that the faded banner is never just an empty screen
+              end: "+=55%",
+              pin: true,
+              pinSpacing: true,
+              anticipatePin: 1,
+              scrub: 1,
+              invalidateOnRefresh: true,
+              refreshPriority: 3,
+            },
+          })
+          .to(name, { scale: 1.18, duration: 1 }, 0)
+          .to(rest, { opacity: 0, y: -26, duration: 0.7 }, 0);
       }
 
       /* ----------------------------------------------------- sticky chrome */

@@ -67,7 +67,6 @@ export const chapters = [
   { id: "services", label: "Services" },
   { id: "archive", label: "Archive" },
   { id: "stack", label: "The stack" },
-  { id: "process", label: "Request a quote" },
   { id: "about", label: "Colophon" },
   { id: "experience", label: "The log" },
   { id: "education", label: "Credentials" },
@@ -96,9 +95,9 @@ export type Plate = {
 export const plates: Plate[] = [
   {
     id: "cms",
-    title: "Makura CMS",
+    title: "CMS",
     kicker: "The content layer",
-    claim: "One CMS. Eight live sites. Forty block types. Nobody touches code to publish.",
+    claim: "The dashboard your team actually works in. Models, records, media and publishing, in one place.",
     kind: "Platform",
     years: "2025 — now",
     role: "Front-end lead",
@@ -118,7 +117,7 @@ export const plates: Plate[] = [
     ],
     image: {
       src: "/work/cms.webp",
-      alt: "Three live Nepali websites — a cricket publication, a trekking catalogue and a beauty store — all served by the same CMS backend",
+      alt: "The CMS itself: the platform dashboard, the content manager listing 64 records, and a record open in the editor",
     },
   },
   {
