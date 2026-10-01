@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger, registerGsap, prefersReducedMotion } from "@/lib/motion";
-import { nav } from "@/content/site";
+import { chapters } from "@/content/site";
 
 /**
  * Right-edge reading meter: how far through, and which chapter you are in.
@@ -30,9 +30,9 @@ export default function Progress() {
     if (!rootEl || !fillEl || !pctEl || !labelEl) return;
 
     const ctx = gsap.context(() => {
-      const sections = nav
+      const sections = chapters
         .map((item) => ({ item, el: document.getElementById(item.id) }))
-        .filter((entry): entry is { item: (typeof nav)[number]; el: HTMLElement } =>
+        .filter((entry): entry is { item: (typeof chapters)[number]; el: HTMLElement } =>
           Boolean(entry.el)
         );
 

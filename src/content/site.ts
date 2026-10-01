@@ -49,13 +49,28 @@ export const figures = [
   { value: 5, suffix: "", label: "sectors already proven: retail, travel, publishing, events, education" },
 ] as const;
 
+/** the short list in the sticky header — six is as many as the bar can hold */
 export const nav = [
+  { id: "work", label: "Work" },
+  { id: "services", label: "Services" },
+  { id: "archive", label: "Archive" },
+  { id: "stack", label: "Stack" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" },
+] as const;
+
+/** every section, in order — drives the menu sheet and the reading meter */
+export const chapters = [
   { id: "top", label: "Masthead" },
+  { id: "reel", label: "Showreel" },
   { id: "work", label: "Plates" },
+  { id: "services", label: "Services" },
   { id: "archive", label: "Archive" },
   { id: "stack", label: "The stack" },
+  { id: "process", label: "Request a quote" },
   { id: "about", label: "Colophon" },
   { id: "experience", label: "The log" },
+  { id: "education", label: "Credentials" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -181,6 +196,118 @@ export const plates: Plate[] = [
       src: "/work/events.webp",
       alt: "EventPlanner homepage: a dense masonry gallery of wedding and party styling photographs",
     },
+  },
+];
+
+/* ----------------------------------------------------------------- showreel */
+
+/**
+ * The landing reel. Right now this is a recorded pass over four of the live
+ * deployments — real work in motion rather than a stock loop.
+ *
+ * TO SWAP IN YOUR OWN INTRO VIDEO: drop the file at public/work/ and change
+ * `src` and `poster` below. Keep it muted-safe (no essential audio) — it
+ * autoplays, and browsers only allow that when muted. 20s or under, h264 mp4,
+ * and under ~3 MB so it never blocks first paint.
+ */
+export const reel = {
+  src: "/work/showreel.mp4",
+  poster: "/work/showreel-poster.webp",
+  /** shown over the video before it plays */
+  kicker: "Showreel",
+  title: "Four of them, running right now.",
+  body:
+    "Not a mockup reel. This is a recorded pass over four sites that are live today — a cricket publication, a trekking catalogue, a beauty store and an events tenant, all reading from the same CMS.",
+  caption: "Recorded from the live deployments · 20s · no sound",
+  /** replace with your own piece to camera when you record it */
+  swapNote: "Intro video slot",
+} as const;
+
+/* ----------------------------------------------------------------- services */
+
+export type Service = {
+  no: string;
+  title: string;
+  lede: string;
+  points: string[];
+  /** two stills, so the media column outruns the sticky copy beside it */
+  images: { src: string; alt: string }[];
+  /** the real page these stills were taken from */
+  source: string;
+};
+
+export const services: Service[] = [
+  {
+    no: "01",
+    title: "Marketing & catalogue sites",
+    lede:
+      "The site your customers actually read: a product or package page that carries photography, detail, price and a reason to enquire — and that your team can edit without me.",
+    points: ["Catalogue & detail pages", "Editable content model", "Enquiry capture", "Multi-currency"],
+    images: [
+      {
+        src: "/work/svc-marketing.webp",
+        alt: "A trek detail page: sticky section nav, trip highlights and a sticky price and booking card",
+      },
+      {
+        src: "/work/svc-marketing-b.webp",
+        alt: "The same page further down: a day-by-day itinerary beside the sticky booking card",
+      },
+    ],
+    source: "yatra-prod.vercel.app",
+  },
+  {
+    no: "02",
+    title: "Online stores",
+    lede:
+      "Catalogue, variants, stock, cart and checkout. The cart survives a login because it is merged, not replaced — and the product page is a composition, not a fixed template.",
+    points: ["Cart & checkout", "Stock and variants", "Customer accounts", "Stripe"],
+    images: [
+      {
+        src: "/work/svc-store.webp",
+        alt: "A beauty product page: price, stock count, quantity stepper and add-to-cart",
+      },
+      {
+        src: "/work/svc-store-b.webp",
+        alt: "The skin-care category grid: branded product cards with prices and save badges",
+      },
+    ],
+    source: "online-store-prod.vercel.app",
+  },
+  {
+    no: "03",
+    title: "Publishing at scale",
+    lede:
+      "When the archive is the hard part. Thousands of pages that stay fast, stay indexed and stay editable — static where it can be, dynamic only where it must be.",
+    points: ["Static generation", "Sitemaps & SEO", "Category routing", "Core Web Vitals"],
+    images: [
+      {
+        src: "/work/svc-publishing.webp",
+        alt: "A cricket fixtures page: upcoming match cards with team crests and a full schedule",
+      },
+      {
+        src: "/work/svc-publishing-b.webp",
+        alt: "The season overview: tab cards for fixtures, points table, highlights, poll and teams",
+      },
+    ],
+    source: "chhaka-prod.vercel.app",
+  },
+  {
+    no: "04",
+    title: "Enquiry & booking flows",
+    lede:
+      "The part that earns the money. A multi-step form that asks the right questions in the right order, validates as it goes, and lands on a phone rather than in an inbox nobody opens.",
+    points: ["Multi-step forms", "Validation", "WhatsApp & email alerts", "Lead capture"],
+    images: [
+      {
+        src: "/work/svc-booking.webp",
+        alt: "A plan-your-trip wizard: step indicator, solo or group choice, and a continue button",
+      },
+      {
+        src: "/work/svc-booking-b.webp",
+        alt: "The contact page: address, WhatsApp and office-hours cards above a message form",
+      },
+    ],
+    source: "yatra-prod.vercel.app",
   },
 ];
 

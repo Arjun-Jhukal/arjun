@@ -195,14 +195,16 @@ export default function SiteMotion() {
       });
 
       /* --------------------------------------------- masthead exit + fade */
-      const masthead = document.querySelector<HTMLElement>("#top");
-      const mastheadInner = masthead?.querySelector<HTMLElement>("[data-hero-fade]");
-      if (masthead && mastheadInner) {
+      const mastheadInner = document.querySelector<HTMLElement>("[data-hero-fade]");
+      // the masthead is sticky inside the dock, so its own rect stops moving —
+      // the fade has to be measured against a viewport of scroll instead
+      const fadeTrigger = document.querySelector<HTMLElement>(".dock") ?? document.querySelector<HTMLElement>("#top");
+      if (fadeTrigger && mastheadInner) {
         gsap.to(mastheadInner, {
           yPercent: -14,
-          opacity: 0.1,
+          opacity: 0.08,
           ease: "none",
-          scrollTrigger: { trigger: masthead, start: "top top", end: "bottom top", scrub: 1 },
+          scrollTrigger: { trigger: fadeTrigger, start: "top top", end: "+=90%", scrub: 1 },
         });
       }
 

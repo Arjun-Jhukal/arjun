@@ -45,6 +45,11 @@ export default function SmoothScroll() {
 
     lenis.on("scroll", onScroll);
 
+    scrollState.lock = (locked: boolean) => {
+      if (locked) lenis.stop();
+      else lenis.start();
+    };
+
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
 
@@ -75,6 +80,7 @@ export default function SmoothScroll() {
       window.removeEventListener("orientationchange", refresh);
       window.removeEventListener("load", refresh);
       gsap.ticker.remove(raf);
+      scrollState.lock = () => {};
       lenis.off("scroll", onScroll);
       lenis.destroy();
     };

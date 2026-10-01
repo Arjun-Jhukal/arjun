@@ -196,7 +196,7 @@ export default function Plates() {
     <section id="work" className="plates" data-tone="ink" ref={section}>
       <div className="sheet plates__head">
         <div className="runner">
-          <span className="runner__no">01</span>
+          <span className="runner__no">02</span>
           <span className="runner__name">Plates — selected work</span>
           <span className="runner__trail">{String(plates.length).padStart(2, "0")} shown</span>
         </div>

@@ -435,21 +435,19 @@ button {
   z-index: 200;
   display: grid;
   align-content: center;
+  justify-items: center;
   overflow-y: auto;
   padding-block: calc(var(--header-h) + 2rem) 2rem;
   will-change: clip-path;
 }
 
+/* one centred column, capped — the sheet is a short list, not a sitemap */
 .menu__inner {
   display: grid;
-  gap: clamp(2.5rem, 5vw, 5rem);
-}
-
-@media (min-width: 900px) {
-  .menu__inner {
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
-    align-items: start;
-  }
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 .menu__list {
@@ -459,8 +457,8 @@ button {
 .menu__link {
   display: flex;
   align-items: baseline;
-  gap: 1.25rem;
-  padding-block: clamp(0.5rem, 1.4vw, 1rem);
+  gap: 1rem;
+  padding-block: 0.45rem;
   border-bottom: 1px solid var(--rule-soft);
   transition: color 0.3s var(--ease), padding-left 0.4s var(--ease);
 }
@@ -480,15 +478,24 @@ button {
 .menu__label {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(2rem, 1.4rem + 3.4vw, 4.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.045em;
+  /* eleven chapters have to fit one screen at 600px wide */
+  font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
 .menu__aside {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   align-content: start;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (min-width: 560px) {
+  .menu__aside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .menu__contact {
@@ -594,6 +601,34 @@ button {
   color: var(--spot);
 }
 
+/* ------------------------------------------------------------------ dock */
+
+/*
+ * The masthead sticks inside the dock while the reel scrolls up over it. The
+ * dock is the masthead plus the reel, so the hero releases as soon as the reel
+ * has passed — a hero stuck to the document would sit behind every band below
+ * and show through the ones that have no background of their own.
+ *
+ * Guarded on height as well as width: a sticky element taller than the viewport
+ * pins its top and makes its own bottom unreachable.
+ */
+.dock {
+  position: relative;
+}
+
+@media (min-width: 1000px) and (min-height: 760px) {
+  .dock > .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+  }
+
+  .dock > .reel {
+    position: relative;
+    z-index: 1;
+  }
+}
+
 /* -------------------------------------------------------------- masthead */
 
 .masthead {
@@ -608,23 +643,18 @@ button {
   isolation: isolate;
 }
 
+/* traced outlines that draw themselves — see Devanagari.tsx */
 .masthead__deva {
   position: absolute;
   left: 50%;
   top: 46%;
   translate: -50% -50%;
-  font-family: var(--deva);
-  font-size: clamp(5rem, 22vw, 20rem);
-  line-height: 1;
-  /* drawn, not smudged: a 4% fill reads as a rendering artefact, an outline
-     reads as a deliberate mark */
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--fg);
-  opacity: 0.16;
-  white-space: nowrap;
+  width: min(92vw, 1500px);
+  height: auto;
+  color: var(--fg);
+  opacity: 0.22;
   pointer-events: none;
   z-index: -1;
-  user-select: none;
 }
 
 .masthead__grid {
@@ -1132,6 +1162,246 @@ button {
   }
 }
 
+
+/* ------------------------------------------------------------------- reel */
+
+.reel {
+  position: relative;
+  padding-top: clamp(4rem, 7vw, 7rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+  overflow: hidden;
+}
+
+.reel__head {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+@media (min-width: 1000px) {
+  .reel__head {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: end;
+  }
+}
+
+.reel__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2rem, 1.3rem + 3.4vw, 4.6rem);
+  line-height: 0.88;
+  letter-spacing: -0.042em;
+  max-width: 16ch;
+}
+
+/* the stage breaks the sheet so the frame can reach full bleed */
+.reel__stage {
+  width: 100%;
+}
+
+.reel__frame {
+  position: relative;
+  height: clamp(320px, 76vh, 820px);
+  overflow: hidden;
+  background: var(--paper-2);
+  will-change: clip-path;
+  /* the opening state is also the no-JS state, so the panel never starts
+     full-bleed and then jump to inset on first scroll */
+  clip-path: inset(12% 16% 12% 16% round 18px);
+}
+
+.reel__frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.reel__hud {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 4vw, 3.5rem);
+  /* a solid player bar, not a gradient: the reel is mostly bright white pages
+     and a scrim that fades out leaves the caption unreadable over them */
+  background: rgb(10 9 8 / 0.88);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgb(244 241 234 / 0.14);
+  color: #f4f1ea;
+}
+
+.reel__hud .meta {
+  color: rgb(244 241 234 / 0.88);
+}
+
+.reel__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.2rem;
+  background: rgb(10 9 8 / 0.72);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgb(244 241 234 / 0.55);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f4f1ea;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.reel__btn:hover {
+  border-color: var(--spot-bright);
+  background: var(--spot-bright);
+  color: #fff;
+}
+
+.reel__glyph {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.reel__glyph.is-playing {
+  width: 8px;
+  height: 10px;
+  border: 0;
+  background: currentColor;
+  clip-path: polygon(0 0, 35% 0, 35% 100%, 0 100%, 0 0, 65% 0, 100% 0, 100% 100%, 65% 100%, 65% 0);
+}
+
+/* ---------------------------------------------------------------- services */
+
+.split {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 8rem);
+}
+
+.split__item {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding-block: clamp(2.5rem, 5vw, 5rem);
+}
+
+.split__item + .split__item {
+  border-top: 1px solid var(--rule-soft);
+}
+
+@media (min-width: 900px) {
+  .split__item {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: start;
+  }
+
+  /* the copy holds while its own two stills run past it */
+  .split__copy {
+    position: sticky;
+    top: calc(var(--header-h) + clamp(2rem, 7vh, 5.5rem));
+  }
+}
+
+.split__title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 1.3rem + 2.1vw, 3.1rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin-top: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.split__lede {
+  color: var(--fg-muted);
+  max-width: 42ch;
+  margin-bottom: 1.75rem;
+}
+
+.split__points {
+  display: grid;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--rule-soft);
+  max-width: 36ch;
+}
+
+.split__points li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.split__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.split__media {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.split__shot {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--paper-3);
+  border: 1px solid var(--rule);
+}
+
+/* inset so the still can drift on both axes without exposing the frame:
+   the tween travels 6% vertically and 4.5% horizontally */
+.split__shot-inner {
+  position: absolute;
+  inset: -9%;
+  display: block;
+  will-change: transform;
+}
+
+.split__shot-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.split__shot-cap {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: linear-gradient(to top, rgb(10 9 8 / 0.74), transparent);
+  color: #f4f1ea;
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.split__shot-cap span:first-child {
+  color: var(--spot-bright);
+}
+
+/* no pin, no sticky, no drift below 900px — just copy then its stills */
+@media (max-width: 899px) {
+  .split__shot-inner {
+    inset: 0;
+    transform: none !important;
+  }
+}
 
 /* ---------------------------------------------------------------- archive */
 
@@ -1831,16 +2101,13 @@ button {
 
 .contact__deva {
   position: absolute;
-  right: -2vw;
-  bottom: -6vh;
-  font-family: var(--deva);
-  font-size: clamp(6rem, 24vw, 22rem);
-  line-height: 0.8;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--fg);
-  opacity: 0.2;
+  right: -4vw;
+  bottom: -4vh;
+  width: min(62vw, 820px);
+  height: auto;
+  color: var(--fg);
+  opacity: 0.26;
   pointer-events: none;
-  user-select: none;
 }
 
 .contact__grid {
@@ -2151,6 +2418,35 @@ button {
   color: rgb(244 241 234 / 0.5);
 }
 
+/* body is frozen while the menu sheet is open; Lenis is stopped alongside it,
+   because a smooth-scroll driver keeps running against overflow: hidden */
+body.v4.is-locked {
+  overflow: hidden;
+}
+
+/*
+ * The sheet sits at z-index 200, so the bar that opened it has to sit above —
+ * otherwise the Close button is behind the thing it closes and Escape is the
+ * only way out. While the sheet is open the bar drops its backdrop and borrows
+ * the ink palette, because it is now sitting on ink.
+ */
+body.v4.is-locked .chrome {
+  z-index: 220;
+  --fg: #f4f1ea;
+  --fg-muted: #a39c90;
+  --rule: #3a3731;
+  --spot: var(--spot-bright);
+  color: #f4f1ea;
+}
+
+body.v4.is-locked .chrome::before {
+  opacity: 0;
+}
+
+body.v4.is-locked .chrome__nav {
+  display: none;
+}
+
 /* ----------------------------------------------------- reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2219,17 +2515,28 @@ button {
   .marquee__track {
     transform: none !important;
   }
+
+  /* the frame opens on scrub; with no scrub it has to start open */
+  .reel__frame {
+    clip-path: none !important;
+  }
+
+  .reel__frame video {
+    transform: none !important;
+  }
 }
 
 /* On a phone the masthead watermark lands behind the standfirst; drop it back
    so it is texture rather than interference. */
 @media (max-width: 760px) {
   .masthead__deva {
-    opacity: 0.09;
-    top: 58%;
+    opacity: 0.14;
+    top: 60%;
   }
 
   .contact__deva {
-    opacity: 0.1;
+    opacity: 0.16;
+    width: 92vw;
+    right: -8vw;
   }
 }

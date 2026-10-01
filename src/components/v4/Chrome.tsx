@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { gsap, registerGsap, prefersReducedMotion } from "@/lib/motion";
-import { nav, person } from "@/content/site";
+import { gsap, registerGsap, prefersReducedMotion, scrollState } from "@/lib/motion";
+import { nav, chapters, person } from "@/content/site";
 import Clock from "./Clock";
 
 export default function Chrome() {
@@ -40,6 +40,21 @@ export default function Chrome() {
     }
   }, [open]);
 
+  /*
+   * Freeze the page behind the sheet. Both halves are needed: the class stops a
+   * native scroll, and scrollState.lock stops Lenis, which otherwise keeps
+   * advancing its own target under an overflow-hidden body and dumps you
+   * somewhere else when the sheet closes.
+   */
+  useEffect(() => {
+    document.body.classList.toggle("is-locked", open);
+    scrollState.lock(open);
+    return () => {
+      document.body.classList.remove("is-locked");
+      scrollState.lock(false);
+    };
+  }, [open]);
+
   // escape closes, and so does any navigation
   useEffect(() => {
     if (!open) return;
@@ -60,7 +75,7 @@ export default function Chrome() {
           </a>
 
           <nav className="chrome__nav" aria-label="Sections">
-            {nav.slice(1).map((item) => (
+            {nav.map((item) => (
               <a
                 className="chrome__link"
                 href={`#${item.id}`}
@@ -89,7 +104,7 @@ export default function Chrome() {
       <div className="menu" ref={panel} data-tone="ink" style={{ display: "none" }}>
         <div className="sheet menu__inner">
           <div className="menu__list">
-            {nav.map((item, i) => (
+            {chapters.map((item, i) => (
               <a
                 className="menu__link"
                 href={`#${item.id}`}

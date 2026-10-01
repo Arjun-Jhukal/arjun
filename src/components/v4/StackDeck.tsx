@@ -121,7 +121,7 @@ export default function StackDeck() {
     <section id="stack" className="stack" data-tone="ink" ref={section}>
       <div className="sheet" style={{ paddingTop: "clamp(4rem, 7vw, 7rem)" }}>
         <div className="runner">
-          <span className="runner__no">03</span>
+          <span className="runner__no">05</span>
           <span className="runner__name">The stack — part by part</span>
           <span className="runner__trail">{layers.length} layers</span>
         </div>

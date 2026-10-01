@@ -13,6 +13,9 @@ import Chrome from "@/components/v4/Chrome";
 import Clock from "@/components/v4/Clock";
 import Marquee from "@/components/v4/Marquee";
 import Plates from "@/components/v4/Plates";
+import Reel from "@/components/v4/Reel";
+import Services from "@/components/v4/Services";
+import Devanagari from "@/components/v4/Devanagari";
 import Archive from "@/components/v4/Archive";
 import StackDeck from "@/components/v4/StackDeck";
 import ContactForm from "@/components/v4/ContactForm";
@@ -27,11 +30,20 @@ export default function Page() {
       <Chrome />
 
       <main>
+        {/*
+          The dock holds the masthead and the reel together. The masthead is
+          sticky inside it, so the reel rides up over a hero that stays put —
+          and the masthead releases the moment the dock ends, instead of
+          hanging around behind every section below.
+        */}
+        <div className="dock">
         {/* ------------------------------------------------------- masthead */}
         <section id="top" className="masthead">
-          <p className="masthead__deva" aria-hidden="true" data-parallax="0.06">
-            {person.devanagari}
-          </p>
+          <Devanagari
+            variant="masthead"
+            className="masthead__deva"
+            trigger="#top"
+          />
 
           <div className="sheet" data-hero-fade>
             <div className="masthead__kicker">
@@ -111,16 +123,23 @@ export default function Page() {
           </div>
         </section>
 
+        {/* --------------------------------------------------------- showreel */}
+        <Reel />
+        </div>
+
         <Marquee />
 
         {/* -------------------------------------------------- plates (pin 1) */}
         <Plates />
 
+        {/* ------------------------------------------- services (sticky split) */}
+        <Services />
+
         {/* -------------------------------------------------------- archive */}
         <section id="archive" className="band">
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">02</span>
+              <span className="runner__no">04</span>
               <span className="runner__name">The archive — everything else</span>
               <span className="runner__trail">Open a row</span>
             </div>
@@ -146,7 +165,7 @@ export default function Page() {
         <section id="process" className="band process">
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">04</span>
+              <span className="runner__no">06</span>
               <span className="runner__name">Request a quote</span>
               <span className="runner__trail">Free first call</span>
             </div>
@@ -197,7 +216,7 @@ export default function Page() {
         <section id="about" className="band">
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">05</span>
+              <span className="runner__no">07</span>
               <span className="runner__name">Colophon — who set this</span>
               <span className="runner__trail">{person.city}</span>
             </div>
@@ -260,7 +279,7 @@ export default function Page() {
         <section id="experience" className="band">
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">06</span>
+              <span className="runner__no">08</span>
               <span className="runner__name">The log — where it was built</span>
               <span className="runner__trail">{roles.length} roles</span>
             </div>
@@ -299,7 +318,7 @@ export default function Page() {
         <section id="education" className="band band--tight">
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">07</span>
+              <span className="runner__no">09</span>
               <span className="runner__name">Credentials</span>
               <span className="runner__trail">Nepal</span>
             </div>
@@ -326,13 +345,11 @@ export default function Page() {
 
         {/* -------------------------------------------------------- contact */}
         <section id="contact" className="band contact" data-tone="ink">
-          <p className="contact__deva" aria-hidden="true">
-            {person.devanagari.split(" ")[0]}
-          </p>
+          <Devanagari variant="contact" className="contact__deva" trigger="#contact" />
 
           <div className="sheet">
             <div className="runner">
-              <span className="runner__no">08</span>
+              <span className="runner__no">10</span>
               <span className="runner__name">Contact — {person.available}</span>
               <span className="runner__trail">{person.coords}</span>
             </div>

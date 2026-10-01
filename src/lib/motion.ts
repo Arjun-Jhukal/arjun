@@ -25,6 +25,12 @@ export const scrollState = {
   /** px/frame, signed. Marquee reads this to lean with the scroll. */
   velocity: 0,
   progress: 0,
+  /**
+   * Freeze the page. SmoothScroll replaces this with one that stops Lenis —
+   * `overflow: hidden` alone does nothing to a smooth-scroll driver, which keeps
+   * animating its own position behind the overlay.
+   */
+  lock: (_locked: boolean) => {},
 };
 
 export function prefersReducedMotion() {
