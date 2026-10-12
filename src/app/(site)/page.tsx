@@ -1,339 +1,235 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
 
-import {
-  person,
-  roles,
-  education,
-} from "@/content/site";
+import { CtaBand } from "@/components/site/Chrome";
+import { ProductRows, SectionHead, PostMagazine } from "@/components/site/Blocks";
+import { ProcessThread } from "@/components/site/ProcessThread";
+import JsonLd from "@/components/site/JsonLd";
+import { featuredProducts, products } from "@/content/products";
+import { features } from "@/content/features";
+import { skills } from "@/content/skills";
+import { allPosts as posts } from "@/content/all-posts";
+import { person, waLink, mailLink, demoHref, demoMessage, hireMessage, teamUpMessage, SITE_URL } from "@/content/contact";
+import { pageMeta, graph, faqLd } from "@/lib/seo";
+import { FaqList } from "@/components/site/Blocks";
 
-import Chrome from "@/components/v4/Chrome";
-import Clock from "@/components/v4/Clock";
-import Marquee from "@/components/v4/Marquee";
-import Plates from "@/components/v4/Plates";
-import Reel from "@/components/v4/Reel";
-import Services from "@/components/v4/Services";
-import Signature from "@/components/v4/Signature";
-import StructuredData from "@/components/v4/StructuredData";
-import Archive from "@/components/v4/Archive";
-import StackDeck from "@/components/v4/StackDeck";
-import ContactForm from "@/components/v4/ContactForm";
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: "Web Developer in Nepal | Arjun Jhukal",
+    description:
+      "Web developer in Kathmandu building online stores, marketplaces, booking sites and CMS platforms with React, Next.js, Node and WordPress. Book a demo.",
+    path: "/",
+    keywords: [
+      "web developer Nepal",
+      "web developer Kathmandu",
+      "hire developer Nepal",
+      "ecommerce website development Nepal",
+      "React developer Nepal",
+      "Next.js developer Nepal",
+      "Node.js developer Nepal",
+    ],
+  }),
+  title: { absolute: "Web Developer in Nepal | Arjun Jhukal" },
+};
 
-export default function Page() {
+const PROCESS = [
+  { title: "A 20-minute call", body: "You tell me what the business needs. I show you the product closest to it, running." },
+  { title: "A clear quote", body: "What is ready, what gets built, how long, how much. In writing, in plain words." },
+  { title: "Built in the open", body: "You see progress on a live preview link every week — not a big reveal at the end." },
+  { title: "Launch and stay", body: "Domain, Google, payments tested with real money. Then I stay on call." },
+];
+
+const HOME_FAQ = [
+  {
+    q: "What does a web developer do?",
+    a: "Everything a website needs: the pages people see ([React](/hire/react), [Next.js](/hire/nextjs)), the server that stores orders and takes payments ([Node.js](/hire/nodejs)), and the dashboard your team edits it from.",
+  },
+  {
+    q: "Do you work with businesses outside Nepal?",
+    a: "Yes — remotely, over Google Meet and WhatsApp. Many products here, like the [CMS](/products/next-cms), suit any country; [eSewa and Khalti](/features/esewa-khalti-payments) are just switched off.",
+  },
+  {
+    q: "Can I see a product before paying?",
+    a: "Always. [Book a demo](/book-a-demo) and I'll walk you through it live, or visit [Chhaka.com](/products/chhaka-cricket), which runs in production today.",
+  },
+];
+
+export default function Home() {
   return (
     <>
-      <StructuredData />
-
-      <a className="skip" href="#top">
-        Skip to content
-      </a>
-
-      <Chrome />
-
-      <main>
-        {/*
-          The opening is the banner and the showreel stacked. The banner is
-          sticky and paints over the reel; as it zooms out the paper behind it
-          dissolves, so the reel is revealed through it rather than after it.
-        */}
-        <div className="opening">
-        {/* ------------------------------------------------------- masthead */}
-        <section id="top" className="masthead">
-          <span className="masthead__bg" aria-hidden="true" />
-          <div className="sheet">
-            <div className="masthead__grid">
-              <div className="masthead__lede">
-                <h1 className="masthead__h1">
-                  <span className="display masthead__title" data-split>
-                    Arjun
-                    <br />
-                    <em>Jhukal</em>
-                  </span>
-                  <span className="masthead__role">{person.role}</span>
-                </h1>
-
-                <p className="lede" data-reveal>
-                  {person.standfirst}
-                </p>
-
-                <div className="masthead__actions" data-reveal data-reveal-children>
-                  <a className="btn" href="#work" data-magnetic>
-                    <span className="btn__label">See the plates</span>
-                    <svg className="btn__arrow" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                      <path d="M1 1v8M1 9h8M1 9 9 1" stroke="currentColor" strokeWidth="1.2" />
-                    </svg>
-                  </a>
-                  <a className="btn btn--ghost" href="#contact" data-magnetic>
-                    <span className="btn__label">Get in touch</span>
-                  </a>
-                  <a className="btn btn--ghost" href="/cv" data-magnetic>
-                    <span className="btn__label">CV</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <p className="scroll-cue meta" aria-hidden="true">
-              <span className="scroll-cue__line" />
-              Scroll
-            </p>
+      {/* ---------- hero: a solid ink band, full-bleed ---------- */}
+      <section className="hero-solid">
+        <div className="hero wrap">
+        <p className="cap hero-cap" data-reveal>
+          <span className="dot" aria-hidden /> Web developer · Kathmandu
+        </p>
+        <h1 className="display-hero" data-reveal>
+          I don&apos;t start from scratch. <em>Neither will you.</em>
+        </h1>
+        <div className="hero-foot hero-foot-min">
+          <p className="lede" data-reveal>
+            Ready-built stores and booking sites, made yours and live in weeks.
+          </p>
+          <div className="btn-row" data-reveal>
+            <Link href={demoHref()} className="btn btn-thread-fill btn-thread btn-lg">
+              Request a demo
+            </Link>
+            <a href={waLink(demoMessage())} className="btn btn-line btn-lg" target="_blank" rel="noopener">
+              WhatsApp
+            </a>
           </div>
-        </section>
-
-        {/* --------------------------------------------------------- showreel */}
-        <Reel />
         </div>
+        </div>
+      </section>
 
-        <Marquee />
 
-        {/* -------------------------------------------------- plates (pin 1) */}
-        <Plates />
+      {/* ---------- recent products ---------- */}
+      <section className="band wrap" id="products">
+        <SectionHead
+          no="01"
+          title="Recent products"
+          aside={
+            <p>
+              Every one is running software you can see in a demo. Pick the closest to your business — I adapt it to
+              your brand. <Link href="/products" className="inline-link">All {products.length} products →</Link>
+            </p>
+          }
+        />
+        <ProductRows items={featuredProducts} />
+      </section>
 
-        {/* ------------------------------------------- services (sticky split) */}
-        <Services />
-
-        {/* -------------------------------------------------------- archive */}
-        <section id="archive" className="band">
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">04</span>
-              <span className="runner__name">The archive — everything else</span>
-              <span className="runner__trail">Open a row</span>
-            </div>
-
-            <h2 className="statement" data-scrub-words style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
-              {"Internal tools, news portals, a broadcast overlay, and a long line of WordPress builds that paid for the lessons."
-                .split(" ")
-                .map((word, i) => (
-                  <span className="w" key={i}>
-                    {word}
-                  </span>
-                ))}
-            </h2>
-
-            <Archive />
+      {/* ---------- request a demo ---------- */}
+      <section className="band">
+        <div className="wrap demo-split">
+          <div className="demo-big" data-reveal>
+            <span className="cap">02 · Request a demo</span>
+            <p className="display-2">See it running before you spend a rupee.</p>
           </div>
-        </section>
-
-        {/* --------------------------------------------------- stack (pin 2) */}
-        <StackDeck />
-
-        {/* ---------------------------------------------------------- about */}
-        <section id="about" className="band">
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">07</span>
-              <span className="runner__name">Colophon — who set this</span>
-              <span className="runner__trail">{person.city}</span>
-            </div>
-
-            <div className="about__grid">
-              <figure className="about__portrait" data-reveal>
-                <Image
-                  src="/profile.jpg"
-                  alt={`${person.name} at work`}
-                  width={1200}
-                  height={1600}
-                  sizes="(min-width: 1000px) 420px, 100vw"
-                  data-parallax="0.08"
-                />
-              </figure>
-
-              <div>
-                <p className="about__namaste" data-reveal>
-                  नमस्ते
-                </p>
-
-                <div className="about__copy" data-reveal data-reveal-children>
-                  <p>
-                    I am a web developer in Kathmandu. I take a site from the content model
-                    through to the thing your customers load on a phone — and I spend most of
-                    my arguments defending one idea: that nobody should need a developer to fix
-                    a typo.
-                  </p>
-                  <p>
-                    Four years in, I have worked the whole arc. QA first, so I learned how
-                    things break. Then WordPress, which taught me what editors actually do with
-                    a site once you hand it over. Then React applications. Now a multi-tenant
-                    CMS with eight sites running on it, which is the version of that lesson I
-                    would build again.
-                  </p>
-                  <p>
-                    What that means for a project: you get the pages, the dashboard behind
-                    them, and the API in between, from one person. Next.js, React and WordPress
-                    are where I am quick. Node, Express and Fastify are newer ground — I write
-                    the endpoints my sites need on them, and I would rather say that plainly
-                    than let you find out later.
-                  </p>
-                  <p>
-                    I also write on my own blog, mostly to keep a publishing pipeline in my own
-                    hands and find out where it hurts before a client does.
-                  </p>
-                </div>
-
-                <div className="about__sign">
-                  <span className="meta">{person.name}</span>
-                  <span className="meta">{person.city}</span>
-                  <span className="meta">{person.languages}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ------------------------------------------------------------ log */}
-        <section id="experience" className="band">
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">08</span>
-              <span className="runner__name">The log — where it was built</span>
-              <span className="runner__trail">{roles.length} roles</span>
-            </div>
-
-            <div className="log" data-spine>
-              <span className="log__spine" aria-hidden="true">
-                <span data-spine-fill />
-              </span>
-
-              {roles.map((role) => (
-                <article className="entry" key={role.hash}>
-                  <span className="entry__dot" aria-hidden="true" />
-                  <p className="entry__when">
-                    <b>{role.period}</b>
-                    {role.duration} · {role.hash}
-                  </p>
-                  <div>
-                    <h3 className="entry__role">{role.title}</h3>
-                    <p className="entry__org">{role.org}</p>
-                    <p className="entry__body">{role.body}</p>
-                  </div>
-                  <ul className="entry__tags">
-                    {role.tags.map((tag) => (
-                      <li className="chip" key={tag}>
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ---------------------------------------------------- credentials */}
-        <section id="education" className="band band--tight">
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">09</span>
-              <span className="runner__name">Credentials</span>
-              <span className="runner__trail">Nepal</span>
-            </div>
-
-            <div data-reveal data-reveal-children>
-              {education.map((item) => (
-                <div className="cred" key={item.code}>
-                  <span className="meta">{item.code}</span>
-                  <span className="cred__sigil" aria-hidden="true">
-                    {item.sigil}
-                  </span>
-                  <div>
-                    <h3 className="cred__title">{item.title}</h3>
-                    <p className="cred__org">{item.org}</p>
-                  </div>
-                  <span className="meta">
-                    {item.period} · {item.note}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* -------------------------------------------------------- contact */}
-        <section id="contact" className="band contact" data-tone="ink">
-          <Signature className="contact__sign" trigger="#contact" />
-
-          <div className="sheet">
-            <div className="runner">
-              <span className="runner__no">10</span>
-              <span className="runner__name">Contact — {person.available}</span>
-              <span className="runner__trail">{person.coords}</span>
-            </div>
-
-            <div className="contact__grid">
-              <div>
-                <h2 className="contact__title" data-split>
-                  You read to the <em>colophon.</em> Let&apos;s build the next one.
-                </h2>
-
-                <p className="body-copy" data-reveal>
-                  If you need a website built properly — or you have one whose content has
-                  outgrown its codebase — that is exactly the problem I like. The first call is
-                  free and you get a written scope with a number on it before anything is
-                  built. Coffee in Kathmandu, or a call across time zones.
-                </p>
-
-                <dl className="contact__lines" data-reveal data-reveal-children>
-                  <div className="contact__line">
-                    <dt>Email</dt>
-                    <dd>
-                      <a className="ul" href={`mailto:${person.email}`}>
-                        {person.email}
-                      </a>
-                    </dd>
-                  </div>
-                  <div className="contact__line">
-                    <dt>Phone</dt>
-                    <dd>
-                      <a className="ul" href={`tel:${person.phoneHref}`}>
-                        {person.phone}
-                      </a>
-                    </dd>
-                  </div>
-                  <div className="contact__line">
-                    <dt>Based in</dt>
-                    <dd>{person.city}</dd>
-                  </div>
-                  <div className="contact__line">
-                    <dt>Elsewhere</dt>
-                    <dd>
-                      {person.elsewhere.map((link, i) => (
-                        <span key={link.label}>
-                          {i > 0 ? " · " : ""}
-                          <a className="ul" href={link.href} target="_blank" rel="noreferrer">
-                            {link.label}
-                          </a>
-                        </span>
-                      ))}
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-
-              <div data-reveal>
-                <ContactForm />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --------------------------------------------------------- footer */}
-        <footer className="contact foot" data-tone="ink" style={{ paddingTop: 0 }}>
-          <div className="sheet foot__row">
-            <span className="meta">
-              © {person.year} {person.name} · {person.issue} · Set and built in Kathmandu
-            </span>
-            <span className="foot__links">
-              <a className="chrome__link" href="#top">
-                Back to top
+          <ol className="demo-ways" data-reveal>
+            <li>
+              <span className="cap">Schedule a meeting</span>
+              <Link href={demoHref()} className="demo-way">
+                Pick a date and time →
+              </Link>
+              <p>Google Meet, a phone call, or in person in Kathmandu.</p>
+            </li>
+            <li>
+              <span className="cap">Text me on WhatsApp</span>
+              <a href={waLink(demoMessage())} className="demo-way num" target="_blank" rel="noopener">
+                {person.phone} →
               </a>
-              <a className="chrome__link" href="/cv">
-                CV
+              <p>Fastest. I usually reply within the hour.</p>
+            </li>
+            <li>
+              <span className="cap">Email</span>
+              <a href={mailLink("Demo request")} className="demo-way">
+                {person.email} →
               </a>
-            </span>
-            <Clock />
+              <p>Good for briefs, documents and longer questions.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+
+      {/* ---------- process ---------- */}
+      <section className="band wrap">
+        <SectionHead no="03" title="How a project goes" />
+        <ProcessThread count={PROCESS.length} />
+        <ol className="steps">
+          {PROCESS.map((s, i) => (
+            <li key={s.title} data-reveal>
+              <span className="steps-no num">{i + 1}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* ---------- hire / team up ---------- */}
+      <section className="band">
+        <div className="wrap hire-split">
+          <div className="hire-col" data-reveal>
+            <span className="cap">04 · For businesses</span>
+            <h2 className="display-2">Hire me.</h2>
+            <p className="lede">
+              One developer for the whole thing — design to database to launch. Fixed-price projects or a monthly
+              retainer for ongoing work. <Link href="/hire" className="inline-link">How hiring works →</Link>
+            </p>
+            <a href={waLink(hireMessage)} className="btn btn-thread-fill btn-thread" target="_blank" rel="noopener">
+              Hire me on WhatsApp
+            </a>
           </div>
-        </footer>
-      </main>
+          <div className="hire-col hire-col-alt" data-reveal>
+            <span className="cap">For agencies &amp; teams</span>
+            <h2 className="display-2">Team up.</h2>
+            <p className="lede">
+              Agencies and studios bring me in for the hard parts: payments, dashboards, multi-tenant backends,
+              performance. White-label is fine.
+            </p>
+            <a href={waLink(teamUpMessage)} className="btn btn-line" target="_blank" rel="noopener">
+              Team up with me
+            </a>
+          </div>
+        </div>
+        <div className="wrap">
+          <ul className="skill-strip" data-reveal>
+            {skills.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/hire/${s.slug}`}>{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+
+      {/* ---------- features ---------- */}
+      <section className="band wrap">
+        <SectionHead
+          no="05"
+          title="Already built, ready for your project"
+          aside={<p>Each one is explained in plain words, with the products that use it.</p>}
+        />
+        <ul className="feature-cloud" data-reveal>
+          {features.map((f) => (
+            <li key={f.slug}>
+              <Link href={`/features/${f.slug}`}>{f.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ---------- guides ---------- */}
+      <section className="band wrap">
+        <SectionHead
+          no="06"
+          title="Guides in plain words"
+          aside={<Link href="/posts" className="inline-link">All guides →</Link>}
+        />
+        <PostMagazine posts={posts.slice(0, 5)} />
+      </section>
+
+      <section className="band wrap">
+        <SectionHead no="07" title="Questions" />
+        <FaqList faqs={HOME_FAQ} topic="a project" />
+      </section>
+
+      <CtaBand />
+
+      <JsonLd
+        data={graph(faqLd(HOME_FAQ), {
+          "@type": "ItemList",
+          name: "Products by Arjun Jhukal",
+          itemListElement: products.map((p, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            url: `${SITE_URL}/products/${p.slug}`,
+            name: p.name,
+          })),
+        })}
+      />
     </>
   );
 }
